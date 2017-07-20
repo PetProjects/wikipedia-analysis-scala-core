@@ -9,8 +9,10 @@ object Main extends App {
   //    "D:/work/.pdp/scala-studing/scala-spark-demo-project/wikipedia-analysis/in/20170501/out/AA/wiki_00"
   //    "wiki_small"
 
-  val docProducer = new AttardiWikiDocumentProducer
+  val docProducer = new AttardiWikiDocumentProducer()(AttardiWikiDocumentParsingStrategy.ToFull)
+
   val path = if (args.length > 0) args(0) else DefaultFilePath
 
-  docProducer.getDocuments(path).foreach(x => println(x))
+  //  docProducer.getDocuments(path).foreach(x => println(x))
+  println("doc with max body=[" + docProducer.getDocuments(path).collect { case x: FullWikiDocument => x }.maxBy(_.body.length) + "]")
 }

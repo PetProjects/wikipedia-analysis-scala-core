@@ -9,7 +9,7 @@ import scala.io.Source
   * Created by Igor_Dobrovolskiy on 20.07.2017.
   */
 
-class AttardiWikiDocumentProducer extends WikiDocumentProducer {
+class AttardiWikiDocumentProducer(implicit val parsingStrategy: AttardiWikiDocumentParsingStrategy) extends WikiDocumentProducer {
 
   /**
     * Main entry point for parsing both directories and file.
@@ -56,7 +56,7 @@ class AttardiWikiDocumentProducer extends WikiDocumentProducer {
     **/
   private def parseDocument(fileLines: Iterator[String]): WikiDocument =
     getFileLines(fileLines.buffered, _.contains("</doc>")) match {
-      case Some(lines) => AttardiWikiDocument(lines)
+      case Some(lines) => parsingStrategy.parse(lines)
       case None => NoWikiDocument(ParseFailReason.Default)
     }
 
