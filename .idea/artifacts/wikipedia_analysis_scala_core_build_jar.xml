@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="wikipedia-analysis-scala-core-build:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/wikipedia_analysis_scala_core_build_jar</output-path>
+    <root id="archive" name="wikipedia-analysis-scala-core-build.jar">
+      <element id="module-output" name="wikipedia-analysis-scala-core-build" />
+      <element id="module-output" name="wikipedia-analysis-scala-core" />
+    </root>
+  </artifact>
+</component>
