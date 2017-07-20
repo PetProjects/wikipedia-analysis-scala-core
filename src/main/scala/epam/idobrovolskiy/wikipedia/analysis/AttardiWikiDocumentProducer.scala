@@ -11,9 +11,9 @@ import scala.io.Source
 
 class AttardiWikiDocumentProducer extends WikiDocumentProducer {
 
-
-  /** Main entry point
-    * */
+  /**
+    * Main entry point for parsing both directories and file.
+    **/
   override def getDocuments(path: String): Stream[WikiDocument] = {
     require(path.nonEmpty && new File(path).exists(), "Invalid path")
 
@@ -24,6 +24,9 @@ class AttardiWikiDocumentProducer extends WikiDocumentProducer {
       getDocumentsFromDirectory(file)
   }
 
+  /**
+    * Recursively process current and inner directories for files. Each file parser is concatenated into resulting stream.
+    **/
   private def getDocumentsFromDirectory(directory: File): Stream[WikiDocument] = {
     val files = directory.listFiles()
 
@@ -36,24 +39,34 @@ class AttardiWikiDocumentProducer extends WikiDocumentProducer {
       .foldLeft(innerFilesStream)(_ #::: _)
   }
 
+  /**
+    * Main entry point for parsing single file.
+    **/
   private def getDocumentsFromFile(filePath: String): Stream[WikiDocument] =
     getDocuments(Source.fromFile(filePath).getLines(), Stream.empty)
 
   private def getDocuments(fileLines: Iterator[String], cStream: Stream[WikiDocument]): Stream[WikiDocument] =
-    if(!fileLines.hasNext)
+    if (!fileLines.hasNext)
       cStream
     else
       parseDocument(fileLines) #:: getDocuments(fileLines, cStream)
 
+  /**
+    * Main entry point for parsing single wiki document.
+    **/
   private def parseDocument(fileLines: Iterator[String]): WikiDocument =
-    getFileLines(fileLines.buffered) match {
+    getFileLines(fileLines.buffered, _.contains("</doc>")) match {
       case Some(lines) => AttardiWikiDocument(lines)
       case None => NoWikiDocument(ParseFailReason.Default)
     }
 
-  private def getFileLines(fileLines: BufferedIterator[String]): Option[List[String]] = {
+  /**
+    * Processes buffered iterator, until predicate of end of document occurs.
+    * Returns an option of list of document lines or None in case of no document ending mark found.
+    */
+  private def getFileLines(fileLines: BufferedIterator[String], endOfDoc: String => Boolean): Option[List[String]] = {
     val lines = ListBuffer.empty[String]
-    while (fileLines.hasNext && !fileLines.head.contains("</doc>")) {
+    while (fileLines.hasNext && !endOfDoc(fileLines.head)) {
       lines += fileLines.head
       fileLines.next()
     }
