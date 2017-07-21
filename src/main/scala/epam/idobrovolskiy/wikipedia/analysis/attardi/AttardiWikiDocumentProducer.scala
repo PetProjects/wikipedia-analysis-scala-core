@@ -1,4 +1,6 @@
-package epam.idobrovolskiy.wikipedia.analysis
+package epam.idobrovolskiy.wikipedia.analysis.attardi
+
+import epam.idobrovolskiy.wikipedia.analysis._
 
 import java.io.File
 
@@ -56,7 +58,7 @@ class AttardiWikiDocumentProducer(implicit val parsingStrategy: AttardiWikiDocum
     **/
   private def parseDocument(fileLines: Iterator[String]): WikiDocument =
     getFileLines(fileLines.buffered, _.contains("</doc>")) match {
-      case Some(lines) => parsingStrategy.parse(lines)
+      case Some(lines) => parsingStrategy.parse(lines.toIndexedSeq)
       case None => NoWikiDocument(ParseFailReason.Default)
     }
 

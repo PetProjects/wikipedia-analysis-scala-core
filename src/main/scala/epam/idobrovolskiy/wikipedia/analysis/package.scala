@@ -4,5 +4,5 @@ package object analysis extends scala.AnyRef {
   //  type WikiDocument = Option[PlainWikiDocument]
   //  type WikiDocuments = List[WikiDocument]
 
-  implicit val DefaultParsingStrategy = AttardiWikiDocumentParsingStrategy.ToPlain
+  implicit val DefaultParsingStrategy = attardi.AttardiWikiDocumentParsingStrategy.ToHeader
 }
