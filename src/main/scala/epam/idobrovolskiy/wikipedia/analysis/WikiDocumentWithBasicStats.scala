@@ -10,7 +10,7 @@ final class WikiDocumentWithBasicStats
   url: String,
   bodyLines: Seq[String]
 )
-  extends WikiDocumentWithBody(id, url, title, bodyLines)
+  extends WikiDocumentWithBody(id, title, url, bodyLines)
 {
   type TBody = BasicBodyStats
 

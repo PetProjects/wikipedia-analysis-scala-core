@@ -11,10 +11,12 @@ trait AttardiWikiDocumentParsingStrategy {
 
 object AttardiWikiDocumentParsingStrategy {
   val ToHeader = new AttardiWikiDocumentParsingStrategy {
-    override def parse(lines: IndexedSeq[String]): WikiDocument = AttardiWikiDocument(lines)
+    override def parse(lines: IndexedSeq[String]): WikiDocument =
+      AttardiWikiDocumentParser.parseHeader(lines)
   }
 
   val ToBasicStats = new AttardiWikiDocumentParsingStrategy {
-    override def parse(lines: IndexedSeq[String]): WikiDocument = AttardiWikiDocument(lines, false)
+    override def parse(lines: IndexedSeq[String]): WikiDocument =
+      AttardiWikiDocumentParser.parseBasicStats(lines)
   }
 }

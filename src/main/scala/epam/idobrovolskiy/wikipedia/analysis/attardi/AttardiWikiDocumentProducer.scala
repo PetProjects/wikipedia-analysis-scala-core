@@ -11,7 +11,7 @@ import scala.io.Source
   * Created by Igor_Dobrovolskiy on 20.07.2017.
   */
 
-class AttardiWikiDocumentProducer(implicit val parsingStrategy: AttardiWikiDocumentParsingStrategy) extends WikiDocumentProducer {
+class AttardiWikiDocumentProducer(val parsingStrategy: AttardiWikiDocumentParsingStrategy) extends WikiDocumentProducer {
 
   /**
     * Main entry point for parsing both directories and file.

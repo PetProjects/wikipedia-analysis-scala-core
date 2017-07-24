@@ -1,12 +1,12 @@
 package epam.idobrovolskiy.wikipedia.analysis
 
-import epam.idobrovolskiy.wikipedia.analysis.attardi.AttardiWikiDocument
+import epam.idobrovolskiy.wikipedia.analysis.attardi.AttardiWikiDocumentParser
 import org.scalatest.{FlatSpec, Matchers}
 
 /**
   * Created by Igor_Dobrovolskiy on 20.07.2017.
   */
-class AttardiWikiDocumentTest extends FlatSpec with Matchers {
+class AttardiWikiDocumentParserTest extends FlatSpec with Matchers {
   val Id = 1
   val Url = "https://en.wikipedia.org/wiki?curid=1"
   val Title = "Some title"
@@ -19,7 +19,7 @@ class AttardiWikiDocumentTest extends FlatSpec with Matchers {
   val Ending = "</doc>"
 
   "Correct single document" should "be parsed into PlainWikiDocument with correct fields" in {
-    val doc = AttardiWikiDocument(IndexedSeq(
+    val doc = AttardiWikiDocumentParser.parseHeader(IndexedSeq(
       Header,
       Body,
       Ending
@@ -29,7 +29,7 @@ class AttardiWikiDocumentTest extends FlatSpec with Matchers {
   }
 
   "Single document with multi line body containing blanks" should "be parsed correctly" in {
-    val doc = AttardiWikiDocument(IndexedSeq(
+    val doc = AttardiWikiDocumentParser.parseHeader(IndexedSeq(
       Header,
       Body,
       "",
@@ -41,16 +41,16 @@ class AttardiWikiDocumentTest extends FlatSpec with Matchers {
   }
 
   "Single document without ending" should "be parsed into NoWikiDocument with default fail reason" in {
-    val doc = AttardiWikiDocument(IndexedSeq(
+    val doc = AttardiWikiDocumentParser.parseBasicStats(IndexedSeq(
       Header,
       Body
-    ), false)
+    ))
 
     doc should be(NoWikiDocument(ParseFailReason.BodyParsingFail))
   }
 
   "Single document without id" should "be parsed into NoWikiDocument with 'header parsing fail' reason" in {
-    val doc = AttardiWikiDocument(IndexedSeq(
+    val doc = AttardiWikiDocumentParser.parseHeader(IndexedSeq(
       HeaderWoId,
       Body,
       Ending
@@ -60,7 +60,7 @@ class AttardiWikiDocumentTest extends FlatSpec with Matchers {
   }
 
   "Single document without title" should "be parsed into NoWikiDocument with 'header parsing fail' reason" in {
-    val doc = AttardiWikiDocument(IndexedSeq(
+    val doc = AttardiWikiDocumentParser.parseHeader(IndexedSeq(
       HeaderWoTitle,
       Body,
       Ending
@@ -70,7 +70,7 @@ class AttardiWikiDocumentTest extends FlatSpec with Matchers {
   }
 
   "Single document without url" should "be parsed into NoWikiDocument with 'header parsing fail' reason" in {
-    val doc = AttardiWikiDocument(IndexedSeq(
+    val doc = AttardiWikiDocumentParser.parseHeader(IndexedSeq(
       HeaderWoUrl,
       Body,
       Ending

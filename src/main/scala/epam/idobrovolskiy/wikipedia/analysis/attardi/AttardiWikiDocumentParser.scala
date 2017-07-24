@@ -5,7 +5,7 @@ import epam.idobrovolskiy.wikipedia.analysis._
 /**
   * Created by Igor_Dobrovolskiy on 20.07.2017.
   */
-object AttardiWikiDocument {
+object AttardiWikiDocumentParser {
 
   //<doc id="12" url="https://en.wikipedia.org/wiki?curid=12" title="Anarchism">
   //<doc id="307" url="https://en.wikipedia.org/wiki?curid=307" title="Abraham Lincoln">
@@ -22,7 +22,7 @@ object AttardiWikiDocument {
         NoWikiDocument(ParseFailReason.HeaderParsingFail)
     }
 
-  private def parseHeader(attardiLines: IndexedSeq[String]): WikiDocument =
+  def parseHeader(attardiLines: IndexedSeq[String]): WikiDocument =
     attardiLines.find(_.contains(StartDocMark)) match {
       case Some(headerLine) => parseHeader(headerLine)
       case _ => NoWikiDocument(ParseFailReason.HeaderParsingFail)
@@ -37,19 +37,15 @@ object AttardiWikiDocument {
       None
   }
 
-  def apply(attardiLines: IndexedSeq[String], justHeader: Boolean = true): WikiDocument =
+  def parseBasicStats(attardiLines: IndexedSeq[String]): WikiDocument =
     parseHeader(attardiLines) match {
-      case res@WikiDocumentHeader(id, title, url) =>
-        if (justHeader)
-          res
-        else {
-          getBodyLines(attardiLines) match {
+      case WikiDocumentHeader(id, title, url) =>
+        getBodyLines(attardiLines) match {
             case bodyLines: Some[IndexedSeq[String]] =>
               new WikiDocumentWithBasicStats(id, title, url, bodyLines.value)
             case _ =>
               NoWikiDocument(ParseFailReason.BodyParsingFail)
           }
-        }
 
       case fail => fail
     }
