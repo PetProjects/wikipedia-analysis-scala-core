@@ -8,23 +8,28 @@ import epam.idobrovolskiy.wikipedia.analysis.tokenizer.StopWordsTokenizer
 
 class BasicBodyStats(bodyLines: Seq[String]) {
   val BodyLinesCount = bodyLines.length
-  lazy val Top10Tokens = tokenizer.tokenize(bodyLines).toList.sortBy(-_._2).take(10).toMap
+  val N = 10
 
-  private lazy val top10TokensString = Top10Tokens.toList.map { //TODO: remove after finalized stop words
-    case (k, v) if (k.length == 1) => (k + f" <${k(0).toShort}%08X>", v)
-    case other => other
-  }.mkString(", ")
+  lazy val TopNTokens = tokenizer.tokenize(bodyLines).toList.sortBy(-_._2).take(N).toMap
 
-  override def toString = s"Basic stats={line count: $BodyLinesCount; top words=[$top10TokensString]}"
+  private lazy val topNTokensString = TopNTokens.toList
+    .map { //TODO: remove after finalized stop words
+      case (k, v) if (k.length == 1) => (k + f"<${k(0).toShort}%04X>", v)
+      case other => other
+    }
+    .map {case (k, v) => s"$k -> $v"}
+    .mkString(", ")
+
+  override def toString = s"Basic stats={line count: $BodyLinesCount; top words=[$topNTokensString]}"
 
   override def equals(obj: scala.Any): Boolean = obj match {
     case that: BasicBodyStats =>
       that.isInstanceOf[BasicBodyStats] &&
         that.BodyLinesCount == BodyLinesCount &&
-        that.Top10Tokens == Top10Tokens
+        that.TopNTokens == TopNTokens
   }
 
-  override def hashCode = (BodyLinesCount, Top10Tokens).##
+  override def hashCode = (BodyLinesCount, TopNTokens).##
 
   private val tokenizer = new StopWordsTokenizer
 }
