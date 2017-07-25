@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29714d32-8324-4adb-867c-341030a8ad3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/wikipedia-analysis-scala-core-build.iml" afterPath="$PROJECT_DIR$/.idea/modules/wikipedia-analysis-scala-core-build.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/wikipedia-analysis-scala-core.iml" afterPath="$PROJECT_DIR$/.idea/modules/wikipedia-analysis-scala-core.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/PreprocessingDestination.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentPreprocessor.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/BasicBodyStats.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBasicStats.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBasicStats.scala" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/wikipedia_analysis_scala_core_build_jar/wikipedia-analysis-scala-core-build.jar" afterPath="$PROJECT_DIR$/out/artifacts/wikipedia_analysis_scala_core_build_jar/wikipedia-analysis-scala-core-build.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/Main.scala" afterPath="$PROJECT_DIR$/src/main/scala/Main.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentProducer.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentProducer.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiDocumentParserTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiDocumentParserTest.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/NoWikiDocument.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/NoWikiDocument.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/ParseFailReason.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/ParseFailReason.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentHeader.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentHeader.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBody.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBody.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -51,93 +63,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1204">
-              <caret line="59" column="2" lean-forward="true" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
+            <state relative-caret-position="126">
+              <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WikiDocumentPreprocessor.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentPreprocessor.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="76" column="21" lean-forward="true" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
               <folding>
-                <element signature="e#0#78#0" expanded="true" />
+                <element signature="e#47#125#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WikiDocumentWithBasicStats.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBasicStats.scala">
+      <file leaf-file-name="package.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParseFailReason.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/ParseFailReason.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WikiDocumentWithBasicStats.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBasicStats.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="WikiDocumentWithBody.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBody.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="build.sbt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sbt">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBody.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="231">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StopWordsTokenizer.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/StopWordsTokenizer.scala">
+      <file leaf-file-name="WikiDocumentProducer.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentProducer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+            <state relative-caret-position="126">
+              <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicBodyStats.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala">
+      <file leaf-file-name="WikiDocument.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tokenizer.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/Tokenizer.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="8" column="6" lean-forward="false" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttardiWikiDocumentParsingStrategy.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParsingStrategy.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttardiWikiDocumentParser.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+            <state relative-caret-position="147">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -191,14 +193,11 @@
         <option value="$PROJECT_DIR$/src/main/scala/wikipedia/analysis/WikiDocument.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiextractorOutputParser.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentProducer.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiDocument.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiDocumentProducer.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBody.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiDocumentParsingStrategy.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/ParseFailReason.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentProducer.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocument.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParsingStrategy.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/analysis/AttardiWikiDocumentTest.scala" />
@@ -206,12 +205,19 @@
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/BlankSpaceStopWordsTokenizer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/StopWordsTopNTokenizer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/Tokenizer.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBasicStats.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/StopWordsTokenizer.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/NoWikiDocument.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBody.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBasicStats.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBody.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/PreprocessingDestination.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/Main.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentPreprocessor.scala" />
       </list>
     </option>
   </component>
@@ -322,66 +328,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wikipedia-analysis-scala-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wikipedia-analysis-scala-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tokenizer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wikipedia-analysis-scala-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wikipedia-analysis-scala-core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="analysis" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="attardi" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -424,7 +370,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="ScalaTest.ScalaTests in 'scala'">
     <configuration default="false" name="AttardiWikiDocumentTest.Correct single document should be parsed into PlainWikiDocument with correct fields" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="wikipedia-analysis-scala-core" />
@@ -684,8 +630,8 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
-        <item index="1" class="java.lang.String" itemvalue="ScalaTest.ScalaTests in 'scala'" />
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.ScalaTests in 'scala'" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
         <item index="2" class="java.lang.String" itemvalue="ScalaTest.AttardiWikiDocumentTest.Correct single document should be parsed into PlainWikiDocument with correct fields" />
       </list>
     </recent_temporary>
@@ -761,6 +707,9 @@
     <history-entry file="ScalaTests_in_'scala' - 2017.07.24 at 15h 21m 23s.xml">
       <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
+    <history-entry file="ScalaTests_in_'scala' - 2017.07.25 at 16h 26m 02s.xml">
+      <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -780,13 +729,13 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.42518836" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.57481164" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286004" sideWeight="0.57481164" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3275862" sideWeight="0.4720129" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.4720129" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299389" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19644779" sideWeight="0.49592668" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21474704" sideWeight="0.49592668" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.49784714" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -840,7 +789,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala</url>
-          <line>19</line>
+          <line>22</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
@@ -857,51 +806,11 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentProducer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -909,6 +818,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -916,6 +826,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -923,9 +834,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -933,6 +842,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="1" lean-forward="false" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -940,6 +850,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1014,6 +925,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="261" column="6" lean-forward="false" selection-start-line="261" selection-start-column="6" selection-end-line="261" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1022,13 +934,6 @@
         <state relative-caret-position="211">
           <caret line="63" column="6" lean-forward="false" selection-start-line="63" selection-start-column="6" selection-end-line="63" selection-end-column="6" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentProducer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1042,41 +947,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/ParseFailReason.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.2-sources.jar!/scala/collection/IterableLike.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="107" column="35" lean-forward="false" selection-start-line="107" selection-start-column="35" selection-end-line="107" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentProducer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding>
-            <element signature="e#55#101#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -1106,32 +980,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1051">
           <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding>
-            <element signature="e#47#125#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentHeader.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParsingStrategy.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="6" lean-forward="false" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="44" column="18" lean-forward="false" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1154,32 +1002,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/tokenizer/StopWordsTokenizer.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
+        <state relative-caret-position="67">
           <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/BasicBodyStats.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="35" lean-forward="false" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBasicStats.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentWithBody.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1192,12 +1016,140 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParsingStrategy.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="50" column="8" lean-forward="false" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/BasicBodyStats.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/NoWikiDocument.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentHeader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocument.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentProducer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBasicStats.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/ParseFailReason.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.2-sources.jar!/scala/Enumeration.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="54" column="6" lean-forward="true" selection-start-line="54" selection-start-column="6" selection-end-line="54" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/Main.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1204">
-          <caret line="59" column="2" lean-forward="true" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
+        <state relative-caret-position="126">
+          <caret line="6" column="7" lean-forward="false" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/PreprocessingDestination.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentProducer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="19" column="15" lean-forward="false" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBody.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="37" lean-forward="false" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.2-sources.jar!/scala/Array.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="260" column="6" lean-forward="false" selection-start-line="260" selection-start-column="6" selection-end-line="260" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentPreprocessor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="76" column="21" lean-forward="true" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
           <folding>
-            <element signature="e#0#78#0" expanded="true" />
+            <element signature="e#47#125#0" expanded="true" />
           </folding>
         </state>
       </provider>

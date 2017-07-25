@@ -1,6 +1,7 @@
 package epam.idobrovolskiy.wikipedia.analysis
 
 import epam.idobrovolskiy.wikipedia.analysis.attardi.AttardiWikiDocumentParser
+import epam.idobrovolskiy.wikipedia.analysis.document.{NoWikiDocument, ParseFailReason, WikiDocumentHeader}
 import org.scalatest.{FlatSpec, Matchers}
 
 /**

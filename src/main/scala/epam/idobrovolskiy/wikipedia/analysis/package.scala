@@ -1,8 +1,9 @@
 package epam.idobrovolskiy.wikipedia
 
 package object analysis extends scala.AnyRef {
-  //  type WikiDocument = Option[PlainWikiDocument]
-  //  type WikiDocuments = List[WikiDocument]
+  val DefaultInputFilePath = "wiki_small"
+  val DefaultOutputFilePath = "wiki_stats"
 
-//  implicit val DefaultParsingStrategy = attardi.AttardiWikiDocumentParsingStrategy.ToHeader
+  val HdfsNameNodeHost = "hdfs://sandbox.hortonworks.com:8020"
+  val HdfsRootPath = "/user/idobrovolskiy/wikipedia-trending/"
 }

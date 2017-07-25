@@ -1,6 +1,8 @@
 package epam.idobrovolskiy.wikipedia.analysis.attardi
 
 import epam.idobrovolskiy.wikipedia.analysis._
+import epam.idobrovolskiy.wikipedia.analysis.document._
+import epam.idobrovolskiy.wikipedia.analysis.tokenizer.StopWordsTokenizer
 
 /**
   * Created by Igor_Dobrovolskiy on 20.07.2017.
@@ -13,6 +15,7 @@ object AttardiWikiDocumentParser {
   private val FirstLineRE = """<doc id="(\d+)" url="([\S\d\.\?\=\#]+)" title="([^\"]+)">""".r
   private val StartDocMark = "<doc "
   private val EndDocMark = "</doc>"
+  private val tokenizer = new StopWordsTokenizer
 
   private def parseHeader(header: String): WikiDocument =
     header match {
@@ -37,12 +40,23 @@ object AttardiWikiDocumentParser {
       None
   }
 
+  val TopTokenCount = 10
+
+  def paserBasicBodyStats(bodyLines: IndexedSeq[String]) =
+    new BasicBodyStats(bodyLines.length,
+      tokenizer.tokenize(bodyLines)
+        .toList
+        .sortBy(-_._2)
+        .take(TopTokenCount)
+        .toMap)
+
   def parseBasicStats(attardiLines: IndexedSeq[String]): WikiDocument =
     parseHeader(attardiLines) match {
       case WikiDocumentHeader(id, title, url) =>
         getBodyLines(attardiLines) match {
             case bodyLines: Some[IndexedSeq[String]] =>
-              new WikiDocumentWithBasicStats(id, title, url, bodyLines.value)
+              new WikiDocumentWithBasicStats(id, title, url,
+                paserBasicBodyStats(bodyLines.value))
             case _ =>
               NoWikiDocument(ParseFailReason.BodyParsingFail)
           }

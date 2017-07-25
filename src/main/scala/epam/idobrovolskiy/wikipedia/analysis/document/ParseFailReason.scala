@@ -1,4 +1,4 @@
-package epam.idobrovolskiy.wikipedia.analysis
+package epam.idobrovolskiy.wikipedia.analysis.document
 
 /**
   * Created by Igor_Dobrovolskiy on 20.07.2017.

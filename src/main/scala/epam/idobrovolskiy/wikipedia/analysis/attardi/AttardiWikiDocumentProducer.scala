@@ -1,8 +1,9 @@
 package epam.idobrovolskiy.wikipedia.analysis.attardi
 
 import epam.idobrovolskiy.wikipedia.analysis._
-
 import java.io.File
+
+import epam.idobrovolskiy.wikipedia.analysis.document.{NoWikiDocument, ParseFailReason}
 
 import scala.collection.mutable.ListBuffer
 import scala.io.Source
