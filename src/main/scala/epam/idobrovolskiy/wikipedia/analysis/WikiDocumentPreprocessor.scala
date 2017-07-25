@@ -20,26 +20,28 @@ object WikiDocumentPreprocessor {
 
     val documents = docProducer.getDocuments(inputPath)
 
-    val destBitset = BitSet.fromBitMask(Array(dest.id.toLong))
+    //    val destBitset = BitSet.fromBitMask(Array(dest.id.toLong))
+    val destBitset = dest.id.toLong
 
-    val printToStdout = destBitset.contains(PreprocessingDestination.Stdout.id)
+    val printToStdout = (destBitset & PreprocessingDestination.Stdout.id) != 0
 
-    if (destBitset.contains(PreprocessingDestination.Hdfs.id))
+    def doPrintToStdout(wd: WikiDocument) =
+      if (printToStdout) print(s"\r${wd.id}        ") //println(docString)
+
+    if ((destBitset & PreprocessingDestination.Hdfs.id) != 0)
       withHdfsFileName(destPath, documents)((bw, wd) => {
         val docString = wd.toString
 
-        if (printToStdout)
-          println(docString)
+        doPrintToStdout(wd)
 
         bw.write(docString)
         bw.newLine()
       })
-    else if (destBitset.contains(PreprocessingDestination.LocalFs.id))
+    else if ((destBitset & PreprocessingDestination.LocalFs.id) != 0)
       withFileName(destPath, documents)((pw, wd) => {
         val docString = wd.toString
 
-        if (printToStdout)
-          println(docString)
+        doPrintToStdout(wd)
 
         pw.println(docString)
       })
@@ -69,6 +71,7 @@ object WikiDocumentPreprocessor {
     if (hdfs.exists(file)) {
       hdfs.delete(file, true)
     }
+
     val osw: OutputStream = hdfs.create(file)
 
     val bw = new BufferedWriter(new OutputStreamWriter(osw, "UTF-8"))
@@ -79,6 +82,5 @@ object WikiDocumentPreprocessor {
 
     finally
       bw.close()
-
   }
 }

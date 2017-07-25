@@ -8,11 +8,9 @@ class WikiDocumentWithBasicStats
   id: Int,
   title: String,
   url: String,
-  basicStats: BasicBodyStats
+  val body: BasicBodyStats
 )
   extends WikiDocumentWithBody(id, title, url)
 {
   type TBody = BasicBodyStats
-
-  val body: BasicBodyStats = basicStats
 }

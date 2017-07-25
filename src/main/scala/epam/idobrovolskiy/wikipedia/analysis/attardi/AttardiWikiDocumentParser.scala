@@ -12,6 +12,8 @@ object AttardiWikiDocumentParser {
   //<doc id="12" url="https://en.wikipedia.org/wiki?curid=12" title="Anarchism">
   //<doc id="307" url="https://en.wikipedia.org/wiki?curid=307" title="Abraham Lincoln">
 
+  val TopTokenCount = 10
+
   private val FirstLineRE = """<doc id="(\d+)" url="([\S\d\.\?\=\#]+)" title="([^\"]+)">""".r
   private val StartDocMark = "<doc "
   private val EndDocMark = "</doc>"
@@ -39,8 +41,6 @@ object AttardiWikiDocumentParser {
     else
       None
   }
-
-  val TopTokenCount = 10
 
   def paserBasicBodyStats(bodyLines: IndexedSeq[String]) =
     new BasicBodyStats(bodyLines.length,
