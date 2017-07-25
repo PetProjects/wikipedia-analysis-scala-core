@@ -14,10 +14,10 @@ class BasicBodyStats(bodyLines: Seq[String]) {
 
   private lazy val topNTokensString = TopNTokens.toList
     .map { //TODO: remove after finalized stop words
-      case (k, v) if (k.length == 1) => (k + f"<${k(0).toShort}%04X>", v)
+      case (k, v) if k.length == 1 => (k + f"<${k(0).toShort}%04X>", v)
       case other => other
     }
-    .map {case (k, v) => s"$k -> $v"}
+    .map {case (k, v) => s"$k->$v"}
     .mkString(", ")
 
   override def toString = s"Basic stats={line count: $BodyLinesCount; top words=[$topNTokensString]}"
@@ -29,7 +29,7 @@ class BasicBodyStats(bodyLines: Seq[String]) {
         that.TopNTokens == TopNTokens
   }
 
-  override def hashCode = (BodyLinesCount, TopNTokens).##
+  override def hashCode: Int = (BodyLinesCount, TopNTokens).##
 
   private val tokenizer = new StopWordsTokenizer
 }
