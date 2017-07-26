@@ -1,4 +1,4 @@
-import epam.idobrovolskiy.wikipedia.analysis.{DefaultInputFilePath, DestinationTarget}
+import epam.idobrovolskiy.wikipedia.analysis._
 
 /**
   * Created by hp on 29.06.2017.
@@ -14,7 +14,8 @@ object WikiPrepArgumentsParser {
     def isSwitch(s: String) = s.startsWith("--")
 
     argList match {
-      case Nil => Some(res)
+      case Nil =>
+        Some(res)
       case "--no-stdout" :: tail =>
         parseOptions(tail, (res._1, res._2 & (-1 - DestinationTarget.Stdout.id)))
       case "--to-local-file" :: tail =>
@@ -23,18 +24,28 @@ object WikiPrepArgumentsParser {
         parseOptions(tail, (res._1, res._2 | DestinationTarget.HdfsPlainFile.id))
       case "--to-hdfs-seq-file" :: tail =>
         parseOptions(tail, (res._1, res._2 | DestinationTarget.HdfsSequenceFile.id))
-      case option :: Nil =>
+      case "--help" :: _ =>
+        None
+      case path :: option :: _ if isSwitch(option) =>
+        parseOptions(argList.tail, (path, res._2))
+      case option :: Nil if ! isSwitch(option) =>
         Some(option, res._2)
       case option :: tail =>
-        println("Unknown option " + option)
-        None
+        println("Unknown option " + option); None
     }
   }
 
+  private def isThereTargetForBitset(targetBitset: Int) =
+    DestinationTarget.values.map(_.id).contains(targetBitset)
+
+  private def targetForBitset(targetBitset: Int): DestinationTarget.Value =
+    DestinationTarget.values.find(_.id == targetBitset).get
+
   def parse(args: Array[String]): Option[(String, DestinationTarget.Value)] =
-    parseOptions(args.toList, DefaultInputFilePath -> DestinationTarget.StdoutAndLocalFs.id) match {
-      case Some((path, targetBitset)) => Some((path, DestinationTarget.values.find(_.id == targetBitset).get))
-      case None => printUsage(); None
+    parseOptions(args.toList, DefaultInputFilePath -> DefaultTarget.id) match {
+      case Some((path, targetBitset)) if isThereTargetForBitset(targetBitset) =>
+        Some((path, targetForBitset(targetBitset)))
+      case _ => printUsage(); None
     }
 
   def printUsage() = println(usage)
