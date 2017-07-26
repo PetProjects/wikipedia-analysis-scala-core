@@ -9,6 +9,9 @@ object Main extends App {
 
   val path = if (args.length > 0) args(0) else DefaultInputFilePath
 
-  WikiDocumentPreprocessor.preprocessStats(path, PreprocessingDestination.StdoutAndHdfs)
-//  WikiDocumentPreprocessor.preprocessStats(path, PreprocessingDestination.StdoutAndLocalFs)
+  WikiDocumentPreprocessor.preprocessStats(path,
+//    PreprocessingDestination.StdoutAndHdfsPlainFile
+//    PreprocessingDestination.StdoutAndLocalFs
+    PreprocessingDestination.StdoutAndHdfsSequenceFile
+  )
 }

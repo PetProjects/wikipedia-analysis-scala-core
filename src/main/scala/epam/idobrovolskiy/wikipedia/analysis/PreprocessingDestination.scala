@@ -7,6 +7,8 @@ object PreprocessingDestination extends Enumeration {
   val Stdout = Value(1)
   val LocalFs = Value(2)
   val StdoutAndLocalFs = Value(3)
-  val Hdfs = Value(4)
-  val StdoutAndHdfs = Value(5)
+  val HdfsPlainFile = Value(4)
+  val StdoutAndHdfsPlainFile = Value(5)
+  val HdfsSequenceFile = Value(8)
+  val StdoutAndHdfsSequenceFile = Value(9)
 }

@@ -3,7 +3,7 @@ package epam.idobrovolskiy.wikipedia.analysis.document
 /**
   * Created by Igor_Dobrovolskiy on 21.07.2017.
   */
-class WikiDocumentWithBasicStats
+class WikiDocumentWithBasicBodyStats
 (
   id: Int,
   title: String,

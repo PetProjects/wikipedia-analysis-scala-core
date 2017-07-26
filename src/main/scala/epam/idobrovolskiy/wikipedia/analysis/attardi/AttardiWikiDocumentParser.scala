@@ -42,7 +42,7 @@ object AttardiWikiDocumentParser {
       None
   }
 
-  def paserBasicBodyStats(bodyLines: IndexedSeq[String]) =
+  private def parseBasicBodyStats(bodyLines: IndexedSeq[String]) =
     new BasicBodyStats(bodyLines.length,
       tokenizer.tokenize(bodyLines)
         .toList
@@ -55,8 +55,8 @@ object AttardiWikiDocumentParser {
       case WikiDocumentHeader(id, title, url) =>
         getBodyLines(attardiLines) match {
             case bodyLines: Some[IndexedSeq[String]] =>
-              new WikiDocumentWithBasicStats(id, title, url,
-                paserBasicBodyStats(bodyLines.value))
+              new WikiDocumentWithBasicBodyStats(id, title, url,
+                parseBasicBodyStats(bodyLines.value))
             case _ =>
               NoWikiDocument(ParseFailReason.BodyParsingFail)
           }
