@@ -1,13 +1,6 @@
 package epam.idobrovolskiy.wikipedia.analysis
 
-import java.io.{BufferedWriter, OutputStream, OutputStreamWriter, PrintWriter}
-
-import org.apache.commons.io.IOUtils
-import org.apache.hadoop.conf.Configuration
-import org.apache.hadoop.fs.{FileSystem, Path}
-import org.apache.hadoop.io.SequenceFile.{Metadata, Writer}
-import org.apache.hadoop.io.compress.DefaultCodec
-import org.apache.hadoop.io.{IntWritable, SequenceFile, Text}
+import epam.idobrovolskiy.wikipedia.analysis.common.{FsUtils, HdfsUtils}
 
 /**
   * Created by Igor_Dobrovolskiy on 25.07.2017.
@@ -15,114 +8,35 @@ import org.apache.hadoop.io.{IntWritable, SequenceFile, Text}
 object WikiDocumentPreprocessor {
   private val docProducer = new attardi.AttardiWikiDocumentProducer(DefaultPreprocessingStrategy)
 
-  private lazy val initializeHdfs: FileSystem = {
-    val configuration = new Configuration()
-    configuration.set("fs.default.name", HdfsNameNodeHost)
-
-    FileSystem.get(configuration)
-  }
-
-  private val sequenceFileKey: IntWritable = new IntWritable()
-  private val sequenceFileValue: Text = new Text()
-
-  def preprocessStats(inputPath: String, dest: PreprocessingDestination.Value, destPath: String = DefaultOutputFilePath) = {
+  def preprocessStats(inputPath: String, destTarget: DestinationTarget.Value, destPath: String = DefaultOutputFilePath) = {
     //  val s = "doc with max body=[" + docProducer.getDocuments(path)
     //  //    .collect { case x: WikiDocumentWithBasicStats => x }.maxBy(_.body.BodyLinesCount) + "]"
 
     val documents = docProducer.getDocuments(inputPath)
 
-    val destBitset = dest.id.toLong
+    val targetBitset = destTarget.id.toLong
 
-    val printToStdout = (destBitset & PreprocessingDestination.Stdout.id) != 0
+    val printToStdout = (targetBitset & DestinationTarget.Stdout.id) != 0
 
     def doPrintToStdout(wd: WikiDocument) =
       if (printToStdout) print(s"\r${wd.id}        ") //println(docString)
 
-    if ((destBitset & PreprocessingDestination.HdfsPlainFile.id) != 0)
-      withHdfsPlainFile(destPath, documents)((bw, wd) => {
-        val docString = wd.toString
-
+    if ((targetBitset & DestinationTarget.HdfsPlainFile.id) != 0)
+      HdfsUtils.sinkToPlainFile(destPath, documents)(wd => {
         doPrintToStdout(wd)
-
-        bw.write(docString)
-        bw.newLine()
+        wd.toString
       })
-    else if ((destBitset & PreprocessingDestination.HdfsSequenceFile.id) != 0)
-      withHdfsSequenceFile(destPath, documents)((sfw, wd) => {
-        val docString = wd.toString
-
+    else if ((targetBitset & DestinationTarget.HdfsSequenceFile.id) != 0)
+      HdfsUtils.sinkToSequenceFile(destPath, documents)(wd => {
         doPrintToStdout(wd)
-
-        sequenceFileKey.set(wd.id)
-        sequenceFileValue.set(docString)
-
-        sfw.append(sequenceFileKey, sequenceFileValue)
+        (wd.id, wd.toString)
       })
-    else if ((destBitset & PreprocessingDestination.LocalFs.id) != 0)
-      withFileName(destPath, documents)((pw, wd) => {
-        val docString = wd.toString
-
+    else if ((targetBitset & DestinationTarget.LocalFs.id) != 0)
+      FsUtils.sinkToFile(destPath, documents)(wd => {
         doPrintToStdout(wd)
-
-        pw.println(docString)
+        wd.toString
       })
-  }
-
-  private def withFileName[T](fname: String, ss: Seq[T])(op: (PrintWriter, T) => Unit) = {
-    val writer = new PrintWriter(fname)
-    try
-        for (v <- ss)
-          op(writer, v)
-
-    finally
-      writer.close()
-  }
-
-  def prepareHdfsAndFile(fname: String) : (FileSystem, Path) = {
-    val hdfs = initializeHdfs
-
-    val file = new Path(HdfsRootPath + fname)
-    if (hdfs.exists(file)) {
-      hdfs.delete(file, true)
-    }
-
-    (hdfs, file)
-  }
-
-  private def withHdfsPlainFile[T](fname: String, ss: Seq[T])(op: (BufferedWriter, T) => Unit) = {
-    val (hdfs, path) = prepareHdfsAndFile(fname)
-
-    val osw: OutputStream = hdfs.create(path)
-    val bw = new BufferedWriter(new OutputStreamWriter(osw, "UTF-8"))
-
-    try
-        for (v <- ss)
-          op(bw, v)
-
-    finally
-      bw.close()
-  }
-
-  private def withHdfsSequenceFile[T](fname: String, ss: Seq[T])(op: (Writer, T) => Unit) = {
-    val (hdfs, path) = prepareHdfsAndFile(fname)
-
-    var writer: SequenceFile.Writer = null
-    try {
-      writer = SequenceFile.createWriter(hdfs.getConf(),
-        Writer.file(path),
-        Writer.keyClass(sequenceFileKey.getClass()),
-        Writer.valueClass(sequenceFileValue.getClass()),
-        Writer.bufferSize(hdfs.getConf().getInt("io.file.buffer.size", 4096)),
-        Writer.replication(hdfs.getDefaultReplication(path)),
-        Writer.blockSize(1073741824),
-        Writer.compression(SequenceFile.CompressionType.BLOCK, new DefaultCodec()),
-        Writer.progressable(null),
-        Writer.metadata(new Metadata()))
-
-      for (v <- ss)
-        op(writer, v)
-    }
-    finally
-      IOUtils.closeQuietly(writer)
+    else
+      for(wd <- documents) doPrintToStdout(wd)
   }
 }
