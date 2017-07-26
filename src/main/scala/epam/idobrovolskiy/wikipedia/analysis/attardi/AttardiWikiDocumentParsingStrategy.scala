@@ -19,4 +19,9 @@ object AttardiWikiDocumentParsingStrategy {
     override def parse(lines: IndexedSeq[String]): WikiDocument =
       AttardiWikiDocumentParser.parseBasicStats(lines)
   }
+
+  val ToFullText = new AttardiWikiDocumentParsingStrategy {
+    override def parse(lines: IndexedSeq[String]): WikiDocument =
+      AttardiWikiDocumentParser.parseFullText(lines)
+  }
 }

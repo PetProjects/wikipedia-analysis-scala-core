@@ -51,12 +51,25 @@ object AttardiWikiDocumentParser {
         .toMap)
 
   def parseBasicStats(attardiLines: IndexedSeq[String]): WikiDocument =
+    parseInternal(attardiLines, false)
+
+  def parseFullText(attardiLines: IndexedSeq[String]): WikiDocument =
+    parseInternal(attardiLines, true)
+
+  private def createDocument(id: Int, title: String, url: String, bodyLines: IndexedSeq[String], fullText: Boolean): WikiDocument = {
+    val stats = parseBasicBodyStats(bodyLines)
+    if (fullText)
+      new WikiDocumentFullText(id, title, url, stats, bodyLines)
+    else
+      new WikiDocumentWithBasicBodyStats(id, title, url, stats)
+  }
+
+  private def parseInternal(attardiLines: IndexedSeq[String], fullText: Boolean): WikiDocument =
     parseHeader(attardiLines) match {
       case WikiDocumentHeader(id, title, url) =>
         getBodyLines(attardiLines) match {
-            case bodyLines: Some[IndexedSeq[String]] =>
-              new WikiDocumentWithBasicBodyStats(id, title, url,
-                parseBasicBodyStats(bodyLines.value))
+            case Some(bodyLines) =>
+              createDocument(id, title, url, bodyLines, fullText)
             case _ =>
               NoWikiDocument(ParseFailReason.BodyParsingFail)
           }
