@@ -21,7 +21,14 @@ object WikiDocumentPreprocessor {
     //  val s = "doc with max body=[" + docProducer.getDocuments(path)
     //  //    .collect { case x: WikiDocumentWithBasicStats => x }.maxBy(_.body.BodyLinesCount) + "]"
 
-    val documents = docProducer.getDocuments(args.path)
+    var docPath = args.path
+
+    if(args.extractPlainText) {
+      docPath = args.extractToPath
+      DefaultPlainTextExtractor.extract(args.extractFromPath, docPath)
+    }
+
+    val documents = docProducer.getDocuments(docPath)
     val targetBitset = args.target.id.toLong
 
     val printToStdout =

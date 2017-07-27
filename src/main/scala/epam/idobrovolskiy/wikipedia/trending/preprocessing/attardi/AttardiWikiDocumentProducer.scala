@@ -1,6 +1,5 @@
 package epam.idobrovolskiy.wikipedia.trending.preprocessing.attardi
 
-import epam.idobrovolskiy.wikipedia.trending._
 import java.io.File
 
 import epam.idobrovolskiy.wikipedia.trending.document.{NoWikiDocument, ParseFailReason, WikiDocument, WikiDocumentProducer}
