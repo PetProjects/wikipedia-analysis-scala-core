@@ -70,6 +70,9 @@ object HdfsUtils {
     private val textWritable = new Text()
   }
 
+  private val DefaultBlockSize = 0x10000000L //1073741824L
+  private val DefaultIoFileBufferSize = 4096
+
   private def lazyInitializeWriter(writer: SequenceFile.Writer, hdfs: FileSystem, path: Path,
                                    kw: Writable, vw: Writable): SequenceFile.Writer =
     if (writer != null)
@@ -79,14 +82,14 @@ object HdfsUtils {
         Writer.file(path),
         Writer.keyClass(kw.getClass()),
         Writer.valueClass(vw.getClass()),
-        Writer.bufferSize(hdfs.getConf().getInt("io.file.buffer.size", 4096)),
+        Writer.bufferSize(hdfs.getConf().getInt("io.file.buffer.size", DefaultIoFileBufferSize)),
         Writer.replication(hdfs.getDefaultReplication(path)),
-        Writer.blockSize(1073741824),
+        Writer.blockSize(DefaultBlockSize),
         Writer.compression(SequenceFile.CompressionType.BLOCK, new DefaultCodec()),
         Writer.progressable(null),
         Writer.metadata(new Metadata()))
 
-  def sinkToSequenceFile[T, K, V](fname: String, ss: Seq[T])(convert: T => (K, V)) = {
+  def sinkToSequenceFile[T, K, V](fname: String, ss: => Seq[T])(convert: T => (K, V)) = {
     val (hdfs, path) = prepareHdfsAndFile(fname)
 
     var writer: SequenceFile.Writer = null

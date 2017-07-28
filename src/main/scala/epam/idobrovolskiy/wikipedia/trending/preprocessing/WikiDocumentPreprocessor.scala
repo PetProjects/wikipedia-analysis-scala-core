@@ -28,25 +28,25 @@ object WikiDocumentPreprocessor {
       DefaultPlainTextExtractor.extract(args.extractFromPath, docPath)
     }
 
-    val documents = docProducer.getDocuments(docPath)
+    def documents = docProducer.getDocuments(docPath)
     val targetBitset = args.target.id.toLong
 
     val printToStdout =
       if ((targetBitset & DestinationTarget.Stdout.id) != 0)
         (wd: WikiDocument) => {
-//          if(wd.id % 37 == 0) {
-//            val runtime = Runtime.getRuntime
-//
-//            val sb = new StringBuilder
-//            val maxMemory = runtime.maxMemory
-//            val allocatedMemory = runtime.totalMemory
-//            val freeMemory = runtime.freeMemory
-//            val mbBytes = 1024 * 1024
-//
-//            print(s"${wd.id}  [alloc: ${allocatedMemory / mbBytes}; free: ${freeMemory / mbBytes}; max: ${maxMemory / mbBytes}]")
-//          }
+          if(wd.id % 37 == 0) {
+            val runtime = Runtime.getRuntime
 
-          print(s"\r${wd.id}     ")
+            val sb = new StringBuilder
+            val maxMemory = runtime.maxMemory
+            val allocatedMemory = runtime.totalMemory
+            val freeMemory = runtime.freeMemory
+            val mbBytes = 1024 * 1024
+
+            print(s"\r${wd.id}  [alloc: ${allocatedMemory / mbBytes}; free: ${freeMemory / mbBytes}; max: ${maxMemory / mbBytes}]            ")
+          }
+
+//          print(s"\r${wd.id}     ")
         }
       else
         (_: WikiDocument) => {}

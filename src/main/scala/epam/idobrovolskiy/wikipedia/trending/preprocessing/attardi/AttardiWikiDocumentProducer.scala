@@ -32,7 +32,7 @@ class AttardiWikiDocumentProducer(val parsingStrategy: AttardiWikiDocumentParsin
   private def getDocumentsFromDirectory(directory: File): Stream[WikiDocument] = {
     val files = directory.listFiles()
 
-    val innerFilesStream = files.filter(_.isDirectory)
+    def innerFilesStream = files.filter(_.isDirectory)
       .map(f => getDocumentsFromDirectory(f))
       .foldLeft(Stream.empty[WikiDocument])(_ #::: _)
 
@@ -44,14 +44,17 @@ class AttardiWikiDocumentProducer(val parsingStrategy: AttardiWikiDocumentParsin
   /**
     * Main entry point for parsing single file.
     **/
-  private def getDocumentsFromFile(filePath: String): Stream[WikiDocument] =
-    getDocuments(Source.fromFile(filePath).getLines(), Stream.empty)
+  private def getDocumentsFromFile(filePath: String): Stream[WikiDocument] = {
+    println(s"$filePath")
+    getDocuments(Source.fromFile(filePath).getLines())
+  }
 
-  private def getDocuments(fileLines: Iterator[String], cStream: Stream[WikiDocument]): Stream[WikiDocument] =
+  //@tailrec //do not compile
+  private def getDocuments(fileLines: Iterator[String]): Stream[WikiDocument] =
     if (!fileLines.hasNext)
-      cStream
+      Stream.empty
     else
-      parseDocument(fileLines) #:: getDocuments(fileLines, cStream)
+      parseDocument(fileLines) #:: getDocuments(fileLines)
 
   /**
     * Main entry point for parsing single wiki document.
