@@ -1,10 +1,11 @@
-name := "wikipedia-analysis-scala-core"
+name := "wikipedia-trending"
 
 version := "1.0"
 
-scalaVersion := "2.12.2"
+scalaVersion := "2.11.8"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+//libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.1" % "test"
 //libraryDependencies += "org.apache.lucene" % "lucene-analyzers" % "3.4.0"
 
 resolvers += "Hortonworks Releases" at "http://repo.hortonworks.com/content/repositories/releases/"
@@ -15,3 +16,14 @@ resolvers += "Local Maven Repository" at "file:///" + Path.userHome.absolutePath
 
 // https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common
 libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "2.7.1.2.4.2.10-1"
+
+libraryDependencies ++= {
+  //2.1.0.2.6.0.3-8
+  val sparkVer = "2.1.0"
+  Seq(
+    //"org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources()
+    "org.apache.spark" % "spark-core_2.11" % sparkVer % "provided" withSources(),
+    "org.apache.spark" % "spark-sql_2.11" % sparkVer % "provided" withSources(),
+    "org.apache.spark" % "spark-hive_2.11" % sparkVer % "provided" withSources()
+  )
+}

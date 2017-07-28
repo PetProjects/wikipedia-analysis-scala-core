@@ -1,6 +1,6 @@
 package epam.idobrovolskiy.wikipedia.trending
 
-import epam.idobrovolskiy.wikipedia.trending.preprocessing.DestinationTarget
+import epam.idobrovolskiy.wikipedia.trending.preprocessing.PreprocessingTarget
 
 import scala.annotation.tailrec
 
@@ -19,14 +19,14 @@ object WikiPrepArgumentsParser {
     """.stripMargin
 
   private case class WikiPrepArgumentsRaw (
-    var path: String = DefaultInputFilePath,
-    var targetBitset: Int = DefaultTarget.id,
-    var fullText: Boolean = false,
-    var extractToPath: String = DefaultPathForPlainTextExtraction,
-    var extractFromPath: String = DefaultWikipediaDumpFilesPath,
-    var extractPlainText: Boolean = false
+                                            var path: String = DefaultInputFilename,
+                                            var targetBitset: Int = DefaultTarget.id,
+                                            var fullText: Boolean = false,
+                                            var extractToPath: String = DefaultPathForPlainTextExtraction,
+                                            var extractFromPath: String = DefaultWikipediaDumpFilesPath,
+                                            var extractPlainText: Boolean = false
   ) {
-    def toWikiPrepArguments(convertTarget: Int => DestinationTarget.Value): WikiPrepArguments =
+    def toWikiPrepArguments(convertTarget: Int => PreprocessingTarget.Value): WikiPrepArguments =
       WikiPrepArguments(path,
         convertTarget(targetBitset),
         fullText,
@@ -43,19 +43,19 @@ object WikiPrepArgumentsParser {
       case Nil =>
         Some(res)
       case "--no-stdout" :: tail => {
-        res.targetBitset = res.targetBitset & (-1 - DestinationTarget.Stdout.id)
+        res.targetBitset = res.targetBitset & (-1 - PreprocessingTarget.Stdout.id)
         parseOptions(tail, res)
       }
       case "--to-local-file" :: tail => {
-        res.targetBitset = res.targetBitset | DestinationTarget.LocalFs.id
+        res.targetBitset = res.targetBitset | PreprocessingTarget.LocalFs.id
         parseOptions(tail, res)
       }
       case "--to-hdfs-plain-file" :: tail => {
-        res.targetBitset = res.targetBitset | DestinationTarget.HdfsPlainFile.id
+        res.targetBitset = res.targetBitset | PreprocessingTarget.HdfsPlainFile.id
         parseOptions(tail, res)
       }
       case "--to-hdfs-seq-file" :: tail => {
-        res.targetBitset = res.targetBitset | DestinationTarget.HdfsSequenceFile.id
+        res.targetBitset = res.targetBitset | PreprocessingTarget.HdfsSequenceFile.id
         parseOptions(tail, res)
       }
       case "--full-text" :: tail => {
@@ -97,10 +97,10 @@ object WikiPrepArgumentsParser {
   }
 
   private def isThereTargetForBitset(targetBitset: Int) =
-    DestinationTarget.values.map(_.id).contains(targetBitset)
+    PreprocessingTarget.values.map(_.id).contains(targetBitset)
 
-  private def targetForBitset(targetBitset: Int): Option[DestinationTarget.Value] =
-    DestinationTarget.values.find(_.id == targetBitset)
+  private def targetForBitset(targetBitset: Int): Option[PreprocessingTarget.Value] =
+    PreprocessingTarget.values.find(_.id == targetBitset)
 
   def parse(args: Array[String]): Option[WikiPrepArguments] =
     parseOptions(args.toList, WikiPrepArgumentsRaw()) match {

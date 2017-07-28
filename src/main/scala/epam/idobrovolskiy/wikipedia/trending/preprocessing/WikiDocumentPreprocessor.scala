@@ -8,14 +8,14 @@ import epam.idobrovolskiy.wikipedia.trending.document.{WikiDocument, WikiDocumen
   * Created by Igor_Dobrovolskiy on 25.07.2017.
   */
 object WikiDocumentPreprocessor {
-  def preprocessStats(args: WikiPrepArguments, destPath: String) =
-    preprocess(args, destPath,
+  def preprocessStats(args: WikiPrepArguments, destFilename: String) =
+    preprocess(args, destFilename,
       new attardi.AttardiWikiDocumentProducer(
         attardi.AttardiWikiDocumentParsingStrategy.ToBasicStats)
     )
 
 
-  def preprocess(args: WikiPrepArguments, destPath: String,
+  def preprocess(args: WikiPrepArguments, destFilename: String,
                  docProducer: WikiDocumentProducer) =
   {
     //  val s = "doc with max body=[" + docProducer.getDocuments(path)
@@ -32,7 +32,7 @@ object WikiDocumentPreprocessor {
     val targetBitset = args.target.id.toLong
 
     val printToStdout =
-      if ((targetBitset & DestinationTarget.Stdout.id) != 0)
+      if ((targetBitset & PreprocessingTarget.Stdout.id) != 0)
         (wd: WikiDocument) => {
           if(wd.id % 37 == 0) {
             val runtime = Runtime.getRuntime
@@ -69,12 +69,12 @@ object WikiDocumentPreprocessor {
       (wd.id, wd.toFileEntry)
     }
 
-    if ((targetBitset & DestinationTarget.HdfsPlainFile.id) != 0)
-      HdfsUtils.sinkToPlainFile(destPath, documents)(convertToFileEntry)
-    else if ((targetBitset & DestinationTarget.HdfsSequenceFile.id) != 0)
-      HdfsUtils.sinkToSequenceFile(destPath, documents)(convertToIdAndFileEntry)
-    else if ((targetBitset & DestinationTarget.LocalFs.id) != 0)
-      FsUtils.sinkToFile(destPath, documents)(convertToFileEntry)
+    if ((targetBitset & PreprocessingTarget.HdfsPlainFile.id) != 0)
+      HdfsUtils.sinkToPlainFile(destFilename, documents)(convertToFileEntry)
+    else if ((targetBitset & PreprocessingTarget.HdfsSequenceFile.id) != 0)
+      HdfsUtils.sinkToSequenceFile(destFilename, documents)(convertToIdAndFileEntry)
+    else if ((targetBitset & PreprocessingTarget.LocalFs.id) != 0)
+      FsUtils.sinkToFile(destFilename, documents)(convertToFileEntry)
     else
       for (wd <- documents) printToStdout(wd)
   }

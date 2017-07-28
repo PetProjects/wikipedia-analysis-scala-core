@@ -76,9 +76,15 @@ class AttardiWikiDocumentProducer(val parsingStrategy: AttardiWikiDocumentParsin
       fileLines.next()
     }
 
-    fileLines.headOption match {
-      case Some(s) => lines += s; Some(lines.toList)
-      case _ => None
+//    fileLines.headOption match {
+//      case Some(s) => lines += s; Some(lines.toList)
+//      case _ => None
+//    }
+    if(fileLines.hasNext) {
+      lines += fileLines.head
+      Some(lines.toList)
     }
+    else
+      None
   }
 }
