@@ -1,5 +1,7 @@
 package epam.idobrovolskiy.wikipedia
 
+import org.apache.hadoop.io.{IntWritable, Text}
+
 package object trending extends scala.AnyRef {
   val AppName = "wikipedia-trending"
 
@@ -14,5 +16,9 @@ package object trending extends scala.AnyRef {
   val HdfsNameNodeHost = "hdfs://sandbox.hortonworks.com:8020"
   val HdfsRootPath = "/user/idobrovolskiy/wikipedia-trending/"
 
-  val spark = common.SparkUtils.sparkSession
+  val PreprocessedFileHeaderBodyDelimiter = "\n\n"
+  type PreprocessedSequenceFileKeyType = IntWritable
+  type PreprocessedSequenceFileValueType = Text
+
+  lazy val spark = common.SparkUtils.sparkSession
 }

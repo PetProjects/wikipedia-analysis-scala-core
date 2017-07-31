@@ -1,21 +1,26 @@
 package epam.idobrovolskiy.wikipedia.trending
 
-import epam.idobrovolskiy.wikipedia.trending.document.WikiDocumentHeader
-import org.apache.hadoop.io.{BytesWritable, IntWritable}
-import org.apache.spark.rdd.SequenceFileRDDFunctions
+import epam.idobrovolskiy.wikipedia.trending.indexing.WikiDocumentIndexer
+import org.apache.spark.sql.{DataFrame, SaveMode}
 
 /**
   * Created by Igor_Dobrovolskiy on 28.07.2017.
   */
 object WikiIndex extends App {
 
-  //Just a test
-  val data = spark.sparkContext
-    .sequenceFile[IntWritable, BytesWritable](HdfsRootPath + DefaultFullTextOutputFilename + ".1")
-    .map((r: (IntWritable, BytesWritable)) => WikiDocumentHeader(r._1.get(), "test", "test"))
+  val df: DataFrame = WikiDocumentIndexer.getPreprocessedSequenceFile
 
-//  val seq = new SequenceFileRDDFunctions(data).saveAsSequenceFile()
-  data.saveAsTextFile(HdfsRootPath + "spark.test")
+  //df.printSchema()
+
+  //  df.write.mode(SaveMode.Overwrite).parquet(HdfsRootPath + "wiki_header.parquet")
+
+  df
+    .coalesce(1)
+    .write
+    .mode(SaveMode.Overwrite)
+    .format("com.databricks.spark.csv")
+    .option("header", "true")
+    .save(HdfsRootPath + "wiki_header.csv")
 
   spark.stop()
 }

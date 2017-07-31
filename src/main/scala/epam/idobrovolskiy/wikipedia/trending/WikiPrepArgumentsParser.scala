@@ -14,7 +14,7 @@ object WikiPrepArgumentsParser {
       | WikiPrep [--extract-plaintext [{target folder for plaintext files} [{wiki dumps path}]]]
       |     [--full-text] [--no-stdout] [--to-local-file] [--to-hdfs-plain-file]
       |     [--to-hdfs-seq-file]
-      |     [{plain text file or dir name, is overriden by target path
+      |     [{plain text file or dir name, is overridden by target path
       |                  for --extract-plaintext option once specified}]
     """.stripMargin
 

@@ -52,9 +52,10 @@ object WikiDocumentPreprocessor {
         (_: WikiDocument) => {}
 
     implicit class FileEntry(wd: WikiDocument) {
+
       def toFileEntry = wd match {
         case d: WikiDocumentFullText if args.fullText =>
-          d.toString + "\n\n" + d.fullText.mkString("\n")
+          d.toString + PreprocessedFileHeaderBodyDelimiter + d.fullText.mkString("\n")
         case d => d.toString
       }
     }

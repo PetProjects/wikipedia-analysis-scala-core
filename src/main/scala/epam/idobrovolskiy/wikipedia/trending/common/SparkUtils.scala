@@ -11,7 +11,7 @@ import epam.idobrovolskiy.wikipedia.trending.AppName
   * Created by Igor_Dobrovolskiy on 28.07.2017.
   */
 object SparkUtils {
-  val sparkSession : SparkSession = {
+  lazy val sparkSession : SparkSession = {
     //  val sc = new SparkContext(new SparkConf().setAppName(AppName))
     //  val sqlContext = new HiveContext(sc) //deprecated since spark 2.0!
 
