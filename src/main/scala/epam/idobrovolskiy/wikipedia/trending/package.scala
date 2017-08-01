@@ -1,5 +1,6 @@
 package epam.idobrovolskiy.wikipedia
 
+import epam.idobrovolskiy.wikipedia.trending.time.date.PlainDatesExtractor
 import org.apache.hadoop.io.{IntWritable, Text}
 
 package object trending extends scala.AnyRef {
@@ -19,6 +20,10 @@ package object trending extends scala.AnyRef {
   val PreprocessedFileHeaderBodyDelimiter = "\n\n"
   type PreprocessedSequenceFileKeyType = IntWritable
   type PreprocessedSequenceFileValueType = Text
+
+  val WikiIndexFileName = "wiki_index"
+
+  val DefaultDatesExtractor = new PlainDatesExtractor
 
   lazy val spark = common.SparkUtils.sparkSession
 }

@@ -1,6 +1,5 @@
-package epam.idobrovolskiy.wikipedia.trending
+package epam.idobrovolskiy.wikipedia.trending.preprocessing.attardi
 
-import epam.idobrovolskiy.wikipedia.trending.preprocessing.attardi.AttardiWikiDocumentParser
 import epam.idobrovolskiy.wikipedia.trending.document.{NoWikiDocument, ParseFailReason, WikiDocumentHeader}
 import org.scalatest.{FlatSpec, Matchers}
 
