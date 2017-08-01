@@ -32,6 +32,7 @@ of \d{3,4}								E.g. "During the Spanish revolution of 1873"
 										"whom he married in April 1957"
 										"He divorced his wife, <a href="Irma%20Raush">Irma Raush</a>, in June 1970."
 										"finished the project in late 1974"
+										"Proto-writing in the prehistory dates back to c. 3000 BC."
 										
 
 Trusted date range patterns:
@@ -46,6 +47,7 @@ of \d{4}\-\d{2}							E.g. "The revolutionary wave of 1917–23"
 										"Roman</a> influence from the II century BC to the V century AD"
 										"Councils of Arabia</a> (246–247)"
 										"From November 1947 to spring 1948 he was in the hospital with"
+										"settled between c. 5500 and 4000 BC"
 
 Potential patterns:
 -----------------------------

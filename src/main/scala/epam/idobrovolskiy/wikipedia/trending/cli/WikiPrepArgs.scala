@@ -1,4 +1,4 @@
-package epam.idobrovolskiy.wikipedia.trending
+package epam.idobrovolskiy.wikipedia.trending.cli
 
 import epam.idobrovolskiy.wikipedia.trending.preprocessing.PreprocessingTarget
 
@@ -6,7 +6,7 @@ import epam.idobrovolskiy.wikipedia.trending.preprocessing.PreprocessingTarget
   * Created by Igor_Dobrovolskiy on 26.07.2017.
   */
 
-case class WikiPrepArguments
+case class WikiPrepArgs
 (
   path: String,
   target: PreprocessingTarget.Value,

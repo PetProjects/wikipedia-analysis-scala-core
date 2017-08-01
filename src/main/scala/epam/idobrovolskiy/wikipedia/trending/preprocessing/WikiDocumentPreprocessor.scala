@@ -1,6 +1,7 @@
 package epam.idobrovolskiy.wikipedia.trending.preprocessing
 
 import epam.idobrovolskiy.wikipedia.trending._
+import epam.idobrovolskiy.wikipedia.trending.cli.WikiPrepArgs
 import epam.idobrovolskiy.wikipedia.trending.common.{FsUtils, HdfsUtils}
 import epam.idobrovolskiy.wikipedia.trending.document.{WikiDocument, WikiDocumentFullText, WikiDocumentProducer}
 
@@ -8,14 +9,14 @@ import epam.idobrovolskiy.wikipedia.trending.document.{WikiDocument, WikiDocumen
   * Created by Igor_Dobrovolskiy on 25.07.2017.
   */
 object WikiDocumentPreprocessor {
-  def preprocessStats(args: WikiPrepArguments, destFilename: String) =
+  def preprocessStats(args: WikiPrepArgs, destFilename: String) =
     preprocess(args, destFilename,
       new attardi.AttardiWikiDocumentProducer(
         attardi.AttardiWikiDocumentParsingStrategy.ToBasicStats)
     )
 
 
-  def preprocess(args: WikiPrepArguments, destFilename: String,
+  def preprocess(args: WikiPrepArgs, destFilename: String,
                  docProducer: WikiDocumentProducer) =
   {
     //  val s = "doc with max body=[" + docProducer.getDocuments(path)

@@ -1,5 +1,6 @@
-package epam.idobrovolskiy.wikipedia.trending
+package epam.idobrovolskiy.wikipedia.trending.cli
 
+import epam.idobrovolskiy.wikipedia.trending._
 import epam.idobrovolskiy.wikipedia.trending.preprocessing.PreprocessingTarget
 
 import scala.annotation.tailrec
@@ -8,7 +9,7 @@ import scala.annotation.tailrec
   * Created by hp on 29.06.2017.
   */
 
-object WikiPrepArgumentsParser {
+object WikiPrepArgsParser {
   val usage =
     """ Usage:
       | WikiPrep [--extract-plaintext [{target folder for plaintext files} [{wiki dumps path}]]]
@@ -26,8 +27,8 @@ object WikiPrepArgumentsParser {
                                             var extractFromPath: String = DefaultWikipediaDumpFilesPath,
                                             var extractPlainText: Boolean = false
   ) {
-    def toWikiPrepArguments(convertTarget: Int => PreprocessingTarget.Value): WikiPrepArguments =
-      WikiPrepArguments(path,
+    def toWikiPrepArguments(convertTarget: Int => PreprocessingTarget.Value): WikiPrepArgs =
+      WikiPrepArgs(path,
         convertTarget(targetBitset),
         fullText,
         extractToPath,
@@ -102,7 +103,7 @@ object WikiPrepArgumentsParser {
   private def targetForBitset(targetBitset: Int): Option[PreprocessingTarget.Value] =
     PreprocessingTarget.values.find(_.id == targetBitset)
 
-  def parse(args: Array[String]): Option[WikiPrepArguments] =
+  def parse(args: Array[String]): Option[WikiPrepArgs] =
     parseOptions(args.toList, WikiPrepArgumentsRaw()) match {
       case Some(args: WikiPrepArgumentsRaw)
         if targetForBitset(args.targetBitset) != None =>

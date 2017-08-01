@@ -5,7 +5,9 @@ import epam.idobrovolskiy.wikipedia.trending.document.WikiCitation
   * Created by Igor_Dobrovolskiy on 31.07.2017.
   */
 class PlainDatesExtractor extends DatesExtractor{
-  override def extract(s: String): Seq[WikiDate] = ???
+  override def extract(s: String): Seq[WikiDate] = extractInternalAdHoc(s).collect {
+    case (wikiDate, _, _) => wikiDate
+  }
 
   override def extractWithCitations(id: Int, s: String): Seq[(WikiDate, WikiCitation)] =
     extractInternalAdHoc(s).collect {
