@@ -1,5 +1,6 @@
 package epam.idobrovolskiy.wikipedia.trending.tokenizer
 
+import epam.idobrovolskiy.wikipedia.trending.TopTokenCount
 import scala.collection.mutable
 
 /**
@@ -12,7 +13,7 @@ trait Tokenizer {
 
   def filterWords(w: String): Boolean
 
-  def tokenize(s: String): Map[String, Int] =
+  private def tokenizeLine(s: String): Map[String, Int] =
     splitWords(s).filter(filterWords(_)).groupBy(w => w).map { case (w, ws) => (w, ws.length) }
 
   def tokenize(ss: Seq[String]): Map[String, Int] =
@@ -22,7 +23,7 @@ trait Tokenizer {
       val tMap = mutable.Map.empty[String, Int]
       for {
         s <- ss
-        (k, count) <- tokenize(s)
+        (k, count) <- tokenizeLine(s)
       }
         if (tMap.contains(k))
           tMap(k) += count
@@ -31,5 +32,12 @@ trait Tokenizer {
 
       tMap.toMap
     }
+
+  def getTopNTokens(ss: Seq[String], topN: Int = TopTokenCount) =
+    tokenize(ss)
+      .toList
+      .sortBy(-_._2)
+      .take(topN)
+      .toMap
 
 }

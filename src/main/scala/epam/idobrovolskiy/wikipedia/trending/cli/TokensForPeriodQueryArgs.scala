@@ -9,9 +9,16 @@ case class TokensForPeriodQueryArgs
 (
   since: WikiDate,
   until: WikiDate,
-  topN: Int = 10
+  topN: Int = 10,
+  override val debug: Boolean = false
 )
   extends WikiQueryArgs
 {
-  val queryType = WikiQueryType.TopTokensForPeriod
+  override val queryType = WikiQueryType.TopTokensForPeriod
+
+  override def toString: String = super.toString + s", since=$since, until=$until, topN=$topN"
+
+  override def equals(obj: scala.Any): Boolean = super.equals(obj)
+
+  override def canEqual(other: Any): Boolean = other.isInstanceOf[TokensForPeriodQueryArgs]
 }

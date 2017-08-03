@@ -1,7 +1,7 @@
 package epam.idobrovolskiy.wikipedia.trending.preprocessing.attardi
 
 import epam.idobrovolskiy.wikipedia.trending.document._
-import epam.idobrovolskiy.wikipedia.trending.tokenizer.StopWordsTokenizer
+import epam.idobrovolskiy.wikipedia.trending.{DefaultTokenizer, TopTokenCount}
 
 /**
   * Created by Igor_Dobrovolskiy on 20.07.2017.
@@ -11,12 +11,9 @@ object AttardiWikiDocumentParser {
   //<doc id="12" url="https://en.wikipedia.org/wiki?curid=12" title="Anarchism">
   //<doc id="307" url="https://en.wikipedia.org/wiki?curid=307" title="Abraham Lincoln">
 
-  val TopTokenCount = 10
-
   private val FirstLineRE = """<doc id="(\d+)" url="([\S\d\.\?\=\#]+)" title="([^\"]+)">""".r
   private val StartDocMark = "<doc "
   private val EndDocMark = "</doc>"
-  private val tokenizer = new StopWordsTokenizer
 
   private def parseHeader(header: String): WikiDocument =
     header match {
@@ -43,11 +40,7 @@ object AttardiWikiDocumentParser {
 
   private def parseBasicBodyStats(bodyLines: IndexedSeq[String]) =
     new BasicBodyStats(bodyLines.length,
-      tokenizer.tokenize(bodyLines)
-        .toList
-        .sortBy(-_._2)
-        .take(TopTokenCount)
-        .toMap)
+      DefaultTokenizer.getTopNTokens(bodyLines, TopTokenCount))
 
   def parseBasicStats(attardiLines: IndexedSeq[String]): WikiDocument =
     parseInternal(attardiLines, false)

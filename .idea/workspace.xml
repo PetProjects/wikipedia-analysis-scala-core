@@ -2,25 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29714d32-8324-4adb-867c-341030a8ad3c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiQuery.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryType.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/DatesExtractor.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/PlainDatesExtractor.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/DatesExtractor.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/PlainDatesExtractor.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/WikiDate.scala" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/run_WikiQuery.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/querying/WikiQueryApi.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParserTest.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDateTest.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/wikipedia_analysis_scala_core_build_jar/wikipedia-analysis-scala-core-build.jar" afterPath="$PROJECT_DIR$/out/artifacts/wikipedia_analysis_scala_core_build_jar/wikipedia-analysis-scala-core-build.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/date patterns.txt" afterPath="$PROJECT_DIR$/date patterns.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrep.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrep.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/WikiDocumentPreprocessor.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/WikiDocumentPreprocessor.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrepArguments.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgs.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrepArgumentsParser.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgsParser.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/AttardiWikiDocumentParserTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/attardi/AttardiWikiDocumentParserTest.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiQuery.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiQuery.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgsParser.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgsParser.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/SparkUtils.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/SparkUtils.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiPlainTextExtractor.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiPlainTextExtractor.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/Tokenizer.scala" afterPath="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/Tokenizer.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,84 +66,94 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="WikiPrepArgs.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgs.scala">
+      <file leaf-file-name="WikiDocumentIndexer.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiQueryArgsParser.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiQueryArgs.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiQueryType.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryType.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TokensForPeriodQueryArgs.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WikiPrep.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrep.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="3" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="18" selection-end-column="3" />
+            <state relative-caret-position="192">
+              <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
               <folding>
-                <element signature="e#47#130#0" expanded="true" />
+                <element signature="e#56#118#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WikiIndex.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala">
+      <file leaf-file-name="Tokenizer.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/Tokenizer.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="342">
+              <caret line="35" column="62" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="62" />
+              <folding>
+                <element signature="e#57#115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+              <folding>
+                <element signature="e#38#112#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AttardiWikiDocumentParser.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-969">
+              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding>
+                <element signature="e#69#124#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WikiQueryApi.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/querying/WikiQueryApi.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1179">
+              <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+              <folding>
+                <element signature="e#56#129#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/functions.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="2866" column="6" lean-forward="false" selection-start-line="2866" selection-start-column="6" selection-end-line="2866" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WikiQuery.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KeyValueGroupedDataset.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/KeyValueGroupedDataset.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WikiQuery.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiQuery.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="273">
+              <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+              <folding>
+                <element signature="e#47#158#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -151,10 +163,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="ScalaTest Class" />
         <option value="Scala Class" />
         <option value="Scala Trait" />
         <option value="Scala Object" />
+        <option value="ScalaTest Class" />
       </list>
     </option>
   </component>
@@ -173,10 +185,19 @@
       <find>serializeOnlyStats</find>
       <find>8444</find>
       <find>should</find>
+      <find>seri</find>
+      <find>max</find>
+      <find>shouldEqual</find>
+      <find>.toShort</find>
+      <find>SaveMode.Overwrite</find>
+      <find>getTo</find>
     </findStrings>
     <replaceStrings>
       <replace>/</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>D:\work\.pdp\scala-studing\scala-spark-demo-project\wikipedia-analysis\src\processing-core\wikipedia-analysis-scala-core</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -189,14 +210,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/scala/Main.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/WikiTrend.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParsingStrategy.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentWithBasicBodyStats.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentFull.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/document/WikiDocumentFullText.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/attardi/AttardiWikiDocumentParser.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiDocumentPreprocessor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/WikiPrep.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/WikiPrepArguments.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/WikiPrepArgumentsParser.scala" />
@@ -207,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/package.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/analysis/WikiPrep.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrep.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParsingStrategy.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/PlainTextExtractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/HdfsUtils.scala" />
@@ -216,17 +228,12 @@
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/StopWordsTokenizer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentProducer.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/SparkUtils.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiPlainTextExtractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrepArgumentsParser.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/WikiDocumentPreprocessor.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/WikiCitation.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/DatesExtractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiCitation.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/WikiDate.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/PlainDatesExtractor.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParserTest.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/AttardiWikiDocumentParserTest.scala" />
@@ -237,8 +244,22 @@
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgs.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgumentsParser.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgsParser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiPlainTextExtractor.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/querying/QueryEngine.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParserTest.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala" />
+        <option value="$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDateTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/Tokenizer.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/SparkUtils.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala" />
+        <option value="$PROJECT_DIR$/date patterns.txt" />
+        <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/querying/WikiQueryApi.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiQuery.scala" />
       </list>
     </option>
@@ -300,6 +321,70 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="time" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cli" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="attardi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -330,6 +415,280 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tokenizer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="time" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="querying" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="preprocessing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="preprocessing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="attardi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="indexing" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="document" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wikipedia-analysis-scala-core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="trending" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cli" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -339,8 +698,8 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.36121324" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../elsevier-pre-screenings/session170721" />
-    <property name="settings.editor.selected.configurable" value="Scala Compiler" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -349,6 +708,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="epam.idobrovolskiy.wikipedia.trending.cli" />
+      <recent name="epam.idobrovolskiy.wikipedia.trending.time" />
       <recent name="epam.idobrovolskiy.wikipedia.analysis" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -358,6 +719,7 @@
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="org.scalatest.FlatSpec" />
+      <recent name="org.scalatest.FunSuite" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -372,17 +734,55 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration default="false" name="AttardiWikiDocumentTest.Correct single document should be parsed into PlainWikiDocument with correct fields" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+  <component name="RunManager" selected="ScalaTest.WikiDateTest.ser calc">
+    <configuration default="false" name="WikiQueryArgsParserTest.CLI with single '--tokens' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="wikipedia-analysis-scala-core" />
-      <setting name="path" value="epam.idobrovolskiy.wikipedia.analysis.AttardiWikiDocumentTest" />
+      <setting name="path" value="epam.idobrovolskiy.wikipedia.trending.cli.WikiQueryArgsParserTest" />
       <setting name="package" value="" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
       <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
       <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="Correct single document should be parsed into PlainWikiDocument with correct fields" />
+      <setting name="testName" value="CLI with single '--tokens' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="WikiQueryArgsParserTest" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="wikipedia-analysis-scala-core" />
+      <setting name="path" value="epam.idobrovolskiy.wikipedia.trending.cli.WikiQueryArgsParserTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="WikiQueryArgsParserTest.CLI with '--tokens' and '--debug' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now and debug flag ON" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="wikipedia-analysis-scala-core" />
+      <setting name="path" value="epam.idobrovolskiy.wikipedia.trending.cli.WikiQueryArgsParserTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="CLI with '--tokens' and '--debug' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now and debug flag ON" />
       <setting name="testKind" value="Test name" />
       <setting name="showProgressMessages" value="true" />
       <setting name="useSbt" value="false" />
@@ -411,18 +811,22 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
+    <configuration default="false" name="WikiDateTest.ser calc" type="ScalaTestRunConfiguration" factoryName="ScalaTest" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="epam.idobrovolskiy.wikipedia.trending.WikiPrep" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
       <module name="wikipedia-analysis-scala-core" />
+      <setting name="path" value="epam.idobrovolskiy.wikipedia.trending.time.WikiDateTest" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="ser calc" />
+      <setting name="testKind" value="Test name" />
+      <setting name="showProgressMessages" value="true" />
+      <setting name="useSbt" value="false" />
+      <setting name="useUiWithSbt" value="false" />
+      <classRegexps />
+      <testRegexps />
       <envs />
       <method />
     </configuration>
@@ -625,16 +1029,20 @@
       <envs />
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="ScalaTest.AttardiWikiDocumentTest.Correct single document should be parsed into PlainWikiDocument with correct fields" />
-      <item index="1" class="java.lang.String" itemvalue="ScalaTest.ScalaTests in 'scala'" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="ScalaTest.WikiQueryArgsParserTest.CLI with single '--tokens' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now" />
+      <item index="1" class="java.lang.String" itemvalue="ScalaTest.WikiQueryArgsParserTest" />
+      <item index="2" class="java.lang.String" itemvalue="ScalaTest.WikiQueryArgsParserTest.CLI with '--tokens' and '--debug' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now and debug flag ON" />
+      <item index="3" class="java.lang.String" itemvalue="ScalaTest.ScalaTests in 'scala'" />
+      <item index="4" class="java.lang.String" itemvalue="ScalaTest.WikiDateTest.ser calc" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="ScalaTest.WikiDateTest.ser calc" />
         <item index="1" class="java.lang.String" itemvalue="ScalaTest.ScalaTests in 'scala'" />
-        <item index="2" class="java.lang.String" itemvalue="ScalaTest.AttardiWikiDocumentTest.Correct single document should be parsed into PlainWikiDocument with correct fields" />
+        <item index="2" class="java.lang.String" itemvalue="ScalaTest.WikiQueryArgsParserTest.CLI with '--tokens' and '--debug' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now and debug flag ON" />
+        <item index="3" class="java.lang.String" itemvalue="ScalaTest.WikiQueryArgsParserTest" />
+        <item index="4" class="java.lang.String" itemvalue="ScalaTest.WikiQueryArgsParserTest.CLI with single '--tokens' option should be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now" />
       </list>
     </recent_temporary>
   </component>
@@ -682,35 +1090,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.20 at 20h 09m 21s.xml">
+    <history-entry file="ScalaTests_in_'scala' - 2017.08.03 at 14h 34m 26s.xml">
       <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.21 at 14h 45m 54s.xml">
+    <history-entry file="ScalaTests_in_'scala' - 2017.08.03 at 14h 37m 30s.xml">
       <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.21 at 14h 57m 53s.xml">
+    <history-entry file="ScalaTests_in_'scala' - 2017.08.03 at 14h 39m 11s.xml">
       <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.21 at 15h 41m 35s.xml">
+    <history-entry file="ScalaTests_in_'scala' - 2017.08.03 at 15h 24m 38s.xml">
       <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.21 at 15h 42m 06s.xml">
+    <history-entry file="ScalaTests_in_'scala' - 2017.08.03 at 16h 48m 25s.xml">
       <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.21 at 16h 43m 31s.xml">
-      <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="WikiDateTest_ser_calc - 2017.08.03 at 15h 32m 43s.xml">
+      <configuration name="WikiDateTest.ser calc" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.24 at 15h 21m 23s.xml">
-      <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="WikiDateTest_ser_calc - 2017.08.03 at 15h 33m 53s.xml">
+      <configuration name="WikiDateTest.ser calc" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.25 at 16h 26m 02s.xml">
-      <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="WikiDateTest_ser_calc - 2017.08.03 at 15h 44m 25s.xml">
+      <configuration name="WikiDateTest.ser calc" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.25 at 17h 39m 57s.xml">
-      <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="WikiDateTest_ser_calc - 2017.08.03 at 15h 44m 50s.xml">
+      <configuration name="WikiDateTest.ser calc" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
-    <history-entry file="ScalaTests_in_'scala' - 2017.07.28 at 18h 15m 51s.xml">
-      <configuration name="ScalaTests in 'scala'" configurationId="ScalaTestRunConfiguration" />
+    <history-entry file="WikiDateTest_ser_calc - 2017.08.03 at 15h 48m 24s.xml">
+      <configuration name="WikiDateTest.ser calc" configurationId="ScalaTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -728,21 +1136,21 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299389" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.3412271" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286004" sideWeight="0.31700754" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3286004" sideWeight="0.6587729" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.543057" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.35844994" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.68191606" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299389" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21474704" sideWeight="0.49592668" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.4720129" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296146" sideWeight="0.45694295" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39858013" sideWeight="0.46770722" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39858013" sideWeight="0.53982776" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14262648" sideWeight="0.5040733" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -788,10 +1196,30 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala</url>
+          <line>84</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala</url>
+          <line>90</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParserTest.scala</url>
+          <line>39</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="15" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -800,398 +1228,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-core_2.11/srcs/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/rdd/SequenceFileRDDFunctions.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="35" column="20" lean-forward="true" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sbt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wiki_stats">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="-7686">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/SparkUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/DataFrameWriter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3730">
-          <caret line="205" column="6" lean-forward="false" selection-start-line="205" selection-start-column="6" selection-end-line="205" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/SQLContext.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="343" column="70" lean-forward="false" selection-start-line="343" selection-start-column="61" selection-end-line="343" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.hadoop/hadoop-common/srcs/hadoop-common-2.7.1.2.4.2.10-1-sources.jar!/org/apache/hadoop/io/IntWritable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="31" column="13" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="14" column="16" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiDocumentProducer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/PlainTextExtractor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="9" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiPlainTextExtractor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding>
-            <element signature="e#69#106#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/HdfsUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2352">
-          <caret line="112" column="45" lean-forward="false" selection-start-line="112" selection-start-column="45" selection-end-line="112" selection-end-column="45" />
-          <folding>
-            <element signature="e#54#119#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiDocumentFullText.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="27" lean-forward="false" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiDocumentWithBasicBodyStats.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiDocumentWithBody.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="53" lean-forward="false" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-core_2.11/srcs/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/rdd/RDD.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="368" column="6" lean-forward="false" selection-start-line="368" selection-start-column="6" selection-end-line="368" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-core_2.11/srcs/spark-core_2.11-2.1.0-sources.jar!/org/apache/spark/api/java/function/FlatMapFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/SQLImplicits.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="42" column="8" lean-forward="false" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/time/Month.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="105" column="12" lean-forward="false" selection-start-line="105" selection-start-column="12" selection-end-line="105" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/time/Year.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="140" column="53" lean-forward="true" selection-start-line="140" selection-start-column="53" selection-end-line="140" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/Byte.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/time/LocalDate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="244" column="28" lean-forward="false" selection-start-line="244" selection-start-column="28" selection-end-line="244" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/Row.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="187" column="6" lean-forward="false" selection-start-line="187" selection-start-column="6" selection-end-line="187" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/Encoder.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="74" column="6" lean-forward="false" selection-start-line="74" selection-start-column="6" selection-end-line="74" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/Dataset.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="2259" column="23" lean-forward="false" selection-start-line="2259" selection-start-column="23" selection-end-line="2259" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiDocument.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/functions.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="590">
-          <caret line="2869" column="87" lean-forward="true" selection-start-line="2869" selection-start-column="87" selection-end-line="2869" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding>
-            <element signature="e#38#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/DatesExtractor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/util/matching/Regex.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="668" column="8" lean-forward="false" selection-start-line="668" selection-start-column="8" selection-end-line="668" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-292">
-          <caret line="1924" column="18" lean-forward="false" selection-start-line="1924" selection-start-column="18" selection-end-line="1924" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/PlainDatesExtractor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="8" column="37" lean-forward="false" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/document/WikiCitation.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="94" lean-forward="false" selection-start-line="14" selection-start-column="94" selection-end-line="14" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1029">
-          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-          <folding>
-            <element signature="e#56#244#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/WikiDocumentPreprocessor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="80" column="45" lean-forward="false" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="45" />
-          <folding>
-            <element signature="e#61#107#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/attardi/AttardiWikiDocumentParserTest.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParsingStrategy.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentProducer.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1137">
-          <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/date/WikiDate.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryType.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgs.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgsParser.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#97#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="47" column="4" lean-forward="false" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrep.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="3" lean-forward="false" selection-start-line="7" selection-start-column="2" selection-end-line="18" selection-end-column="3" />
-          <folding>
-            <element signature="e#47#130#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/Predef.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -1200,11 +1236,432 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/CalendarIntervalType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/DateType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="36" column="6" lean-forward="false" selection-start-line="36" selection-start-column="6" selection-end-line="36" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/DecimalType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/MapType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="34" column="11" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/AbstractDataType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="138" column="15" lean-forward="false" selection-start-line="138" selection-start-column="15" selection-end-line="138" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/LongType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="35" column="39" lean-forward="true" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding>
+            <element signature="e#838#885#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.json4s/json4s-ast_2.11/srcs/json4s-ast_2.11-3.2.11-sources.jar!/org/json4s/JsonDSL.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/ArrayType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="e#838#864#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiPrep.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="39" lean-forward="false" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding>
+            <element signature="e#47#130#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/WikiDocumentPreprocessor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="74" column="21" lean-forward="true" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+          <folding>
+            <element signature="e#61#107#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/io/DataInput.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2625">
+          <caret line="148" column="10" lean-forward="false" selection-start-line="148" selection-start-column="10" selection-end-line="148" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/SerialVersionUID.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/lang/Long.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="66" column="7" lean-forward="true" selection-start-line="66" selection-start-column="7" selection-end-line="66" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/Long.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="444" column="45" lean-forward="true" selection-start-line="444" selection-start-column="45" selection-end-line="444" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiIndex.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="55" lean-forward="false" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/io/Serializable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1098">
+          <caret line="168" column="17" lean-forward="false" selection-start-line="168" selection-start-column="17" selection-end-line="168" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-3.0.1-sources.jar!/org/scalatest/Transformer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="62" column="44" lean-forward="true" selection-start-line="62" selection-start-column="44" selection-end-line="62" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.11.8-sources.jar!/scala/Serializable.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="13" column="56" lean-forward="true" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiPlainTextExtractor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="32" column="30" lean-forward="false" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/PlainDatesExtractor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="7" column="43" lean-forward="false" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiPrepArgsParser.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/oracle/jdk1.8.0_131/src.zip!/java/time/LocalDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="143" column="34" lean-forward="false" selection-start-line="143" selection-start-column="34" selection-end-line="143" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-2.2.6-sources.jar!/org/scalatest/Matchers.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="4910" column="27" lean-forward="false" selection-start-line="4910" selection-start-column="16" selection-end-line="4910" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="7" lean-forward="false" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-3.0.1-sources.jar!/org/scalatest/OutcomeOf.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="83" column="4" lean-forward="false" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/TokensForPeriodQueryArgs.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="22" column="11" lean-forward="false" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgs.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.scalatest/scalatest_2.11/srcs/scalatest_2.11-3.0.1-sources.jar!/org/scalatest/Assertions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="465" column="6" lean-forward="false" selection-start-line="465" selection-start-column="6" selection-end-line="465" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParser.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1098">
+          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDateTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding>
+            <element signature="e#52#74#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/HdfsUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="97" column="12" lean-forward="false" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/time/WikiDate.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3024">
+          <caret line="144" column="54" lean-forward="false" selection-start-line="144" selection-start-column="46" selection-end-line="144" selection-end-column="54" />
+          <folding>
+            <element signature="e#57#148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/scala/epam/idobrovolskiy/wikipedia/trending/cli/WikiQueryArgsParserTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
+          <folding>
+            <element signature="e#51#114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/StopWordsTokenizer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="36" lean-forward="true" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/package.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="9" column="47" lean-forward="false" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+          <folding>
+            <element signature="e#38#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/types/StructType.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="95" column="11" lean-forward="false" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/common/SparkUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="32" column="18" lean-forward="true" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="e#154#211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/preprocessing/attardi/AttardiWikiDocumentParser.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-969">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding>
+            <element signature="e#69#124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-catalyst_2.11/srcs/spark-catalyst_2.11-2.1.0-sources.jar!/org/apache/spark/sql/catalyst/plans/joinTypes.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/date patterns.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="70" column="29" lean-forward="false" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/Column.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-418">
+          <caret line="933" column="31" lean-forward="false" selection-start-line="933" selection-start-column="9" selection-end-line="933" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/RelationalGroupedDataset.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="450" column="0" lean-forward="true" selection-start-line="450" selection-start-column="0" selection-end-line="450" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/KeyValueGroupedDataset.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="142" column="19" lean-forward="false" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/tokenizer/Tokenizer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="35" column="62" lean-forward="false" selection-start-line="35" selection-start-column="49" selection-end-line="35" selection-end-column="62" />
+          <folding>
+            <element signature="e#57#115#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/indexing/WikiDocumentIndexer.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="132" column="33" lean-forward="true" selection-start-line="132" selection-start-column="33" selection-end-line="132" selection-end-column="33" />
+          <folding>
+            <element signature="e#56#118#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/Dataset.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="2326" column="6" lean-forward="false" selection-start-line="2326" selection-start-column="6" selection-end-line="2326" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/WikiQuery.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="13" column="38" lean-forward="false" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
+          <folding>
+            <element signature="e#47#158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.ivy2/cache/org.apache.spark/spark-sql_2.11/srcs/spark-sql_2.11-2.1.0-sources.jar!/org/apache/spark/sql/functions.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="2866" column="6" lean-forward="false" selection-start-line="2866" selection-start-column="6" selection-end-line="2866" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/epam/idobrovolskiy/wikipedia/trending/querying/WikiQueryApi.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1179">
+          <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+          <folding>
+            <element signature="e#56#129#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

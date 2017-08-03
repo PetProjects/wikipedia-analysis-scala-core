@@ -1,14 +1,22 @@
 package epam.idobrovolskiy.wikipedia
 
 import epam.idobrovolskiy.wikipedia.trending.time.date.PlainDatesExtractor
+import epam.idobrovolskiy.wikipedia.trending.tokenizer.StopWordsTokenizer
 import org.apache.hadoop.io.{IntWritable, Text}
 
 package object trending extends scala.AnyRef {
   val AppName = "wikipedia-trending"
 
-  val DefaultInputFilename = "wiki_small"
-  val DefaultOutputFilename = "wiki_stats"
-  val DefaultFullTextOutputFilename = "wiki_full"
+  val DefaultTokenizer = new StopWordsTokenizer
+  val TopTokenCount = 10
+
+  val DefaultInputWikiDumpFilename = "wiki_small"
+  val DefaultPrepHeaderFilename = "wiki_prep_headers"
+  val DefaultPrepFullFilename = "wiki_prep_full"
+  val DefaultDateCitationsFileName = "wiki_date_citations"
+  val DefaultDateIndexFileName = "wiki_index_dates"
+  val DefaultDocIndexFileName = "wiki_index_docs"
+
   val DefaultTarget = preprocessing.PreprocessingTarget.Stdout
   val DefaultPathForPlainTextExtraction = "./data/out"
   val DefaultWikipediaDumpFilesPath = "./data/in"
@@ -20,8 +28,6 @@ package object trending extends scala.AnyRef {
   val PreprocessedFileHeaderBodyDelimiter = "\n\n"
   type PreprocessedSequenceFileKeyType = IntWritable
   type PreprocessedSequenceFileValueType = Text
-
-  val WikiIndexFileName = "wiki_index"
 
   val DefaultDatesExtractor = new PlainDatesExtractor
 

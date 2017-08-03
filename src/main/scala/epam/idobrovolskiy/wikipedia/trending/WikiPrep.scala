@@ -9,10 +9,10 @@ object WikiPrep extends App {
     case Some(args: WikiPrepArgs) =>
       if(!args.fullText)
         WikiDocumentPreprocessor.preprocessStats(args,
-          DefaultOutputFilename)
+          DefaultPrepHeaderFilename)
       else
         WikiDocumentPreprocessor.preprocess(args,
-          DefaultFullTextOutputFilename,
+          DefaultPrepFullFilename,
           new AttardiWikiDocumentProducer(AttardiWikiDocumentParsingStrategy.ToFullText))
 
     case _ =>

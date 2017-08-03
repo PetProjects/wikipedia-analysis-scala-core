@@ -20,7 +20,7 @@ object WikiPrepArgsParser {
     """.stripMargin
 
   private case class WikiPrepArgumentsRaw (
-                                            var path: String = DefaultInputFilename,
+                                            var path: String = DefaultInputWikiDumpFilename,
                                             var targetBitset: Int = DefaultTarget.id,
                                             var fullText: Boolean = false,
                                             var extractToPath: String = DefaultPathForPlainTextExtraction,

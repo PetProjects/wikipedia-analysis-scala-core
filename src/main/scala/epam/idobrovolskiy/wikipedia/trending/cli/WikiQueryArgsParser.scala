@@ -1,5 +1,7 @@
 package epam.idobrovolskiy.wikipedia.trending.cli
 
+import epam.idobrovolskiy.wikipedia.trending.time.date.WikiDate
+
 /**
   * Created by Igor_Dobrovolskiy on 01.08.2017.
   */
@@ -8,7 +10,7 @@ object WikiQueryArgsParser {
     """ Usage:
       | WikiQuery (--tokens|--articles [{HDF} | {HDF}-{HDF} | {HDF}-[NOW] | [GENESIS]-{HDF}] )
       |    | (--distribution {token})
-      |    | --help
+      |    [--help] [--debug]
       |
       |  {HDF}={historical date format} Examples:
       |    1971 - treated as 1971 year
@@ -40,32 +42,76 @@ object WikiQueryArgsParser {
     """.stripMargin
 
 
-  private def parseTokensArgs(tail: List[String]): Option[WikiQueryArgs] = ???
-  private def parseArticlesArgs(tail: List[String]): Option[WikiQueryArgs] = ???
-  private def parseDistributionArgs(tail: List[String]): Option[WikiQueryArgs] = ???
-
-  private def parseOptions(argList: List[String]): Option[WikiQueryArgs] = {
+  private def parseTokensArgs(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs =
     argList match {
-      case Nil =>
-        None //no args specified is treated unexpected for WikiQuery
-      case "--tokens" :: tail =>
-        parseTokensArgs(tail)
-      case "--articles" :: tail =>
-        parseArticlesArgs(tail)
-      case "--distribution" :: tail =>
-        parseDistributionArgs(tail)
-      case "--help" :: _ =>
-        None
-      case option :: _ =>
-        println("Unknown option: " + option); None
+      case _ => TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = defArgs.debug)
+    }
+
+  private def parseArticlesArgs(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = ???
+
+  private def parseDistributionArgs(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = ???
+
+  def duplicateQueryType: WikiQueryArgs = {
+    println("Multiple query types in single query are not allowed.")
+    InvalidArgs
+  }
+
+  def argsForQueryType(tail: List[String], defArgs: WikiQueryArgs, qType: WikiQueryType.Value) =
+    if (defArgs.queryType == null || defArgs.queryType == qType)
+      parseCommonOptions(
+        tail,
+        new WikiQueryArgs {
+          override val queryType = qType
+          override val debug = defArgs.debug
+        }
+      )
+    else
+      duplicateQueryType
+
+  private def parseCommonOptions(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = {
+    argList match {
+      case Nil => defArgs
+
+      case "--tokens" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.TopTokensForPeriod)
+
+      case "--articles" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.TopDocumentsForPeriod)
+
+      case "--distribution" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.PeriodDistributionForToken)
+
+      case "--debug" :: tail =>
+        parseCommonOptions(tail, new WikiQueryArgs {
+          override val debug = true
+          override val queryType = defArgs.queryType
+        })
+
+      case "--help" :: _ => InvalidArgs
+
+      case _ :: tail => //not a common option, leaving it for specific parser
+        parseCommonOptions(tail, defArgs)
     }
   }
 
-  def parse(args: Array[String]): Option[WikiQueryArgs] =
-    parseOptions(args.toList) match {
-      case x @ Some(_) => x
-      case _ => printUsage(); None
+  val InvalidArgs = new WikiQueryArgs {
+    val queryType = null
+  }
+
+  def parse(args: Array[String]): Option[WikiQueryArgs] = {
+    val argList = args.toList
+    val commonOpts = parseCommonOptions(argList,
+      InvalidArgs //no args specified is treated unexpected for WikiQuery, i.e. at least query type must be specified explicitly
+    )
+
+    commonOpts.queryType match {
+      case WikiQueryType.TopTokensForPeriod => Some(parseTokensArgs(argList, commonOpts))
+      case WikiQueryType.TopDocumentsForPeriod => Some(parseArticlesArgs(argList, commonOpts))
+      case WikiQueryType.PeriodDistributionForToken => Some(parseDistributionArgs(argList, commonOpts))
+
+      case _ => {
+        printUsage()
+        None
+      }
     }
+  }
 
   def printUsage() = println(usage)
 }

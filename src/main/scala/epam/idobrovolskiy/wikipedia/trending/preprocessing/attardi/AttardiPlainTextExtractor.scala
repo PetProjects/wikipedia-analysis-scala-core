@@ -42,7 +42,7 @@ object AttardiPlainTextExtractor extends PlainTextExtractor {
 
 //      if(! filesToSkip.contains(suffix)) {
         val cCmdLine = cmdLine(cInPath, cOutPath)
-        if ((cCmdLine !) != 0)
+        if (cCmdLine.! != 0)
           throw new RuntimeException(s"Plain text extraction failed for file: ${inFile.getAbsolutePath}")
 //      }
     }

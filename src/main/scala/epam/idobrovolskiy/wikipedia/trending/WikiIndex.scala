@@ -7,7 +7,7 @@ import epam.idobrovolskiy.wikipedia.trending.indexing.WikiDocumentIndexer
   */
 object WikiIndex extends App {
 
-  WikiDocumentIndexer.buildIndex
+  WikiDocumentIndexer.buildIndex(args.contains("--debug"))
 
   spark.stop()
 }
