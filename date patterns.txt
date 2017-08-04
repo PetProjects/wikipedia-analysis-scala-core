@@ -40,7 +40,7 @@ Trusted date range patterns:
 between \d{3,4} and \d{3,4}				E.g. "Numerous heads of state were assassinated between 1881 and 1914"
 of \d{4}\-\d{2}							E.g. "The revolutionary wave of 1917–23"
 \(\d{3,4}\-\d{3,4}\)					E.g. "causing the Spanish Civil War (1936–1939)"
-
+										"(1939–1977)" // NOTE! U+0096 in between!
 										"from 1901 to the 1960s"
 										"In 1998 and 1999, there was", "followed in 1958 and 1959"
 										"Roman</a> influence from the II century BC to the V century AD"

@@ -1,6 +1,6 @@
-package epam.idobrovolskiy.wikipedia.trending.time.date
+package epam.idobrovolskiy.wikipedia.trending.time
 
-import java.io.{IOException, InvalidObjectException, ObjectInputStream, ObjectOutputStream}
+//import java.io.{IOException, InvalidObjectException, ObjectInputStream, ObjectOutputStream}
 import java.time.{LocalDate, Month}
 
 /**
@@ -27,7 +27,7 @@ import java.time.{LocalDate, Month}
 //  @transient
 //  val isCommonEra: Option[Boolean]
 //)
-case class WikiDate
+case class WikiDate private
 (
   @transient
   day: Option[Byte],
@@ -95,7 +95,7 @@ case class WikiDate
 }
 
 object WikiDate {
-//  def apply(
+  //  def apply(
 //    day: Option[Byte],
 //    month: Option[Month],
 //    year: Option[Short],
@@ -114,6 +114,9 @@ object WikiDate {
   def date(year: Int, month: Month, day: Int) =
     WikiDate(Some(day.toByte), Some(month), Some(year), None, None, None, Some(true))
 
+  val AD =
+    WikiDate(None, None, None, None, None, None, Some(true))
+
   def AD(year: Int) =
     date(year)
 
@@ -122,6 +125,9 @@ object WikiDate {
 
   def AD(year: Int, month: Month, day: Int) =
     date(year, month, day)
+
+  val BC =
+    WikiDate(None, None, None, None, None, None, Some(false))
 
   def BC(year: Int) =
     WikiDate(None, None, Some(year), None, None, None, Some(false))

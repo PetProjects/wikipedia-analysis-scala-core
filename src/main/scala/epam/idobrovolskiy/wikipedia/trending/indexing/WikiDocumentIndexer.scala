@@ -76,7 +76,7 @@ object WikiDocumentIndexer {
 
   def getPreprocessedSequenceFile: DataFrame = {
     val data = spark.sparkContext
-      .sequenceFile[PSFKT, PSFVT](HdfsRootPath + DefaultPrepFullFilename + ".1") //TODO: remove ".1"
+      .sequenceFile[PSFKT, PSFVT](HdfsRootPath + DefaultPrepFullFilename)
       .map(sequenceKeyValueToPreprocessedKeyValue)
       .map(preprocessedKeyValueToRow)
 

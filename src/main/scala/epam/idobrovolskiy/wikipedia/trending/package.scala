@@ -1,6 +1,6 @@
 package epam.idobrovolskiy.wikipedia
 
-import epam.idobrovolskiy.wikipedia.trending.time.date.PlainDatesExtractor
+import epam.idobrovolskiy.wikipedia.trending.time.PlainDatesExtractor
 import epam.idobrovolskiy.wikipedia.trending.tokenizer.StopWordsTokenizer
 import org.apache.hadoop.io.{IntWritable, Text}
 

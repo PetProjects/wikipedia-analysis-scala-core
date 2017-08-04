@@ -1,4 +1,5 @@
-package epam.idobrovolskiy.wikipedia.trending.time.date
+package epam.idobrovolskiy.wikipedia.trending.time
+
 import epam.idobrovolskiy.wikipedia.trending.document.WikiCitation
 
 /**

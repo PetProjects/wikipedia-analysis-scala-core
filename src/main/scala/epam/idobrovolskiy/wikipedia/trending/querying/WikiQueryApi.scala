@@ -2,7 +2,7 @@ package epam.idobrovolskiy.wikipedia.trending.querying
 
 import epam.idobrovolskiy.wikipedia.trending.cli.TokensForPeriodQueryArgs
 import epam.idobrovolskiy.wikipedia.trending.indexing.WikiDocumentIndexer
-import epam.idobrovolskiy.wikipedia.trending.time.date.WikiDate
+import epam.idobrovolskiy.wikipedia.trending.time.WikiDate
 import org.apache.spark.sql.DataFrame
 import org.apache.spark.sql.functions.{min, max, explode, sum}
 

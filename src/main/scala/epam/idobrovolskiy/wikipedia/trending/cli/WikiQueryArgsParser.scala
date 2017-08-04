@@ -1,6 +1,6 @@
 package epam.idobrovolskiy.wikipedia.trending.cli
 
-import epam.idobrovolskiy.wikipedia.trending.time.date.WikiDate
+import epam.idobrovolskiy.wikipedia.trending.time.{WikiDate, WikiDateRange}
 
 /**
   * Created by Igor_Dobrovolskiy on 01.08.2017.
@@ -42,9 +42,26 @@ object WikiQueryArgsParser {
     """.stripMargin
 
 
-  private def parseTokensArgs(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs =
+  private def parseTokensArgs(argList: List[String], defArgs: WikiQueryArgs): Option[WikiQueryArgs] =
     argList match {
-      case _ => TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = defArgs.debug)
+      case Nil => Some(defArgs)
+      case "--tokens" :: tail => //setting up default time frame at first, then it will be overriden by specific dates, once specified.
+        parseTokensArgs(tail, TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = defArgs.debug))
+      case dates :: tail if ! dates.startsWith("--") => { //anything, not an option, must be date or date range
+        WikiDateRangeParser.parse(dates) match {
+          case Some(range) =>
+            parseTokensArgs(tail, TokensForPeriodQueryArgs(range.since, range.until, debug = defArgs.debug))
+
+          case None => {
+//            println(s"\"${dates}\" is invalid date/date range.")
+            None
+          } //parsing failed
+        }
+      }
+      case s :: tail if s.startsWith("--") => //as it is an option, it should be a common option, so it's skipped (as already processed in parseCommonOptions())
+        parseTokensArgs(tail, defArgs)
+
+      //no other cases are expected, so we are ok to crash with NoSuchMethodException
     }
 
   private def parseArticlesArgs(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = ???
@@ -101,15 +118,17 @@ object WikiQueryArgsParser {
       InvalidArgs //no args specified is treated unexpected for WikiQuery, i.e. at least query type must be specified explicitly
     )
 
-    commonOpts.queryType match {
-      case WikiQueryType.TopTokensForPeriod => Some(parseTokensArgs(argList, commonOpts))
+    val cOpts = commonOpts.queryType match {
+      case WikiQueryType.TopTokensForPeriod => parseTokensArgs(argList, commonOpts)
       case WikiQueryType.TopDocumentsForPeriod => Some(parseArticlesArgs(argList, commonOpts))
       case WikiQueryType.PeriodDistributionForToken => Some(parseDistributionArgs(argList, commonOpts))
 
-      case _ => {
-        printUsage()
-        None
-      }
+      case _ => None
+    }
+
+    cOpts match { //print usage if failed
+      case None => { printUsage(); None }
+      case x => x
     }
   }
 

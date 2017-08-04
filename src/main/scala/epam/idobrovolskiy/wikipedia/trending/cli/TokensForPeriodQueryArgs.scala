@@ -1,6 +1,6 @@
 package epam.idobrovolskiy.wikipedia.trending.cli
 
-import epam.idobrovolskiy.wikipedia.trending.time.date.WikiDate
+import epam.idobrovolskiy.wikipedia.trending.time.WikiDate
 
 /**
   * Created by Igor_Dobrovolskiy on 01.08.2017.

@@ -2,7 +2,7 @@ package epam.idobrovolskiy.wikipedia.trending.time
 
 import java.time.Month
 
-import epam.idobrovolskiy.wikipedia.trending.time.date.WikiDate
+import epam.idobrovolskiy.wikipedia.trending.tokenizer.StopWordsTokenizer
 import org.scalatest.FunSuite
 
 /**
@@ -36,5 +36,12 @@ class WikiDateTest extends FunSuite {
     val date = WikiDate.deserialize(2233824) // 2129364 //2567655
 
     println(date)
+
+    println("a-".split('-').mkString("[",",","]"))
+
+    val t = new StopWordsTokenizer
+//    val tt = t.getTopNTokens(Seq("""In Ireland, the rebel Irish Catholics formed their own government – Confederate Ireland with the intention of helping the Royalists in return for religious toleration and political autonomy."""))
+    val tt = t.getTopNTokens(Seq("""government – Confederate """))
+    println(tt)
   }
 }
