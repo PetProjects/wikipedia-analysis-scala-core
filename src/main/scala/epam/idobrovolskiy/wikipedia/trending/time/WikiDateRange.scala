@@ -6,9 +6,7 @@ package epam.idobrovolskiy.wikipedia.trending.time
   */
 case class WikiDateRange
 (
-  @transient
   since: WikiDate,
-  @transient
   until: WikiDate
 )
 

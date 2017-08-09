@@ -32,16 +32,9 @@ class WikiDateTest extends FunSuite {
     //Although the test passes, t holds incorrect representation field values (for year, month, day, etc.). Test should be updated after Ser-De issue is fixed in WikiDate class.
   }
 
-  test("ser calc") {
+  test("<entrypoint for fast runtime runs/checks (not a test)>") {
     val date = WikiDate.deserialize(2233824) // 2129364 //2567655
 
     println(date)
-
-    println("a-".split('-').mkString("[",",","]"))
-
-    val t = new StopWordsTokenizer
-//    val tt = t.getTopNTokens(Seq("""In Ireland, the rebel Irish Catholics formed their own government – Confederate Ireland with the intention of helping the Royalists in return for religious toleration and political autonomy."""))
-    val tt = t.getTopNTokens(Seq("""government – Confederate """))
-    println(tt)
   }
 }

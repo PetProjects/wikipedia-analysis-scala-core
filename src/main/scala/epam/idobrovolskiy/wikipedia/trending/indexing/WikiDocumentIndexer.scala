@@ -2,9 +2,9 @@ package epam.idobrovolskiy.wikipedia.trending.indexing
 
 import epam.idobrovolskiy.wikipedia.trending.common.SparkUtils
 import epam.idobrovolskiy.wikipedia.trending.{
-  PreprocessedFileHeaderBodyDelimiter => BodyDelimiter,
-  PreprocessedSequenceFileKeyType => PSFKT,
-  PreprocessedSequenceFileValueType => PSFVT, _
+PreprocessedFileHeaderBodyDelimiter => BodyDelimiter,
+PreprocessedSequenceFileKeyType => PSFKT,
+PreprocessedSequenceFileValueType => PSFVT, _
 }
 import org.apache.spark.sql.functions.{explode, udf}
 import org.apache.spark.sql.types._
@@ -45,7 +45,7 @@ object WikiDocumentIndexer {
   val DocsIndexFileSchema = StructType(
     Array(
       StructField("wiki_id", IntegerType),
-      StructField("wiki_title", IntegerType),
+      StructField("wiki_title", StringType),
       StructField("wiki_url", StringType),
       StructField("top_tokens", MapType(StringType, IntegerType))
     )
@@ -74,9 +74,9 @@ object WikiDocumentIndexer {
     Row(id, title, url, body)
   }
 
-  def getPreprocessedSequenceFile: DataFrame = {
+  def getPreprocessedSequenceFile(fname: String = DefaultPrepFullFilename): DataFrame = {
     val data = spark.sparkContext
-      .sequenceFile[PSFKT, PSFVT](HdfsRootPath + DefaultPrepFullFilename)
+      .sequenceFile[PSFKT, PSFVT](HdfsRootPath + fname)
       .map(sequenceKeyValueToPreprocessedKeyValue)
       .map(preprocessedKeyValueToRow)
 
@@ -90,10 +90,11 @@ object WikiDocumentIndexer {
 
     val extractDatesAndCitations = udf { (id: Int, body: String) =>
       datesExtractor.extractWithCitations(id, body)
-        .map { case (date, citation) => s"$date => $citation" }
+        .map { case (date, citation) => s"id=$id, $date => $citation" }
+        .toSeq
     }
 
-    df.select($"id", explode(extractDatesAndCitations('id, 'body)) as "dates_citations")
+    df.select('id, explode(extractDatesAndCitations('id, 'body)) as "dates_citations")
       .limit(1000)
   }
 
@@ -101,12 +102,14 @@ object WikiDocumentIndexer {
     import df.sqlContext.implicits._
 
     val extractDates = udf { (body: String) =>
-      datesExtractor.extract(body).map(_.serialize)
+      datesExtractor.extract(body)
+        .map(_.serialize)
+        .toSeq
     }
 
     df.select(
       explode(extractDates('body)) as DateIndexFileSchema(0).name,
-      $"id" as DateIndexFileSchema(1).name
+      'id as DateIndexFileSchema(1).name
     )
 
   }
@@ -134,9 +137,9 @@ object WikiDocumentIndexer {
     }
 
     df.select(
-      df(PreprocessedFileSchema(0).name) as DocsIndexFileSchema(0).name,
-      df(PreprocessedFileSchema(1).name) as DocsIndexFileSchema(1).name,
-      df(PreprocessedFileSchema(2).name) as DocsIndexFileSchema(2).name,
+      'id as DocsIndexFileSchema(0).name,
+      'title as DocsIndexFileSchema(1).name,
+      'url as DocsIndexFileSchema(2).name,
       buildTopTokens('body) as DocsIndexFileSchema(3).name
     )
   }
@@ -150,7 +153,7 @@ object WikiDocumentIndexer {
     val tokensMapToString = udf { (map: Map[String, Int]) => map.toString }
 
     SparkUtils.saveAsCsv(
-      docsIndex.limit(1000).select(tokensMapToString($"top_tokens")),
+      docsIndex.limit(1000).select(tokensMapToString('top_tokens)),
       DefaultDocIndexFileName + ".debug")
   }
 
@@ -173,18 +176,18 @@ object WikiDocumentIndexer {
   }
 
   def buildIndex(debug: Boolean = false) = {
-    val df: DataFrame = WikiDocumentIndexer.getPreprocessedSequenceFile
+    val df: DataFrame = WikiDocumentIndexer.getPreprocessedSequenceFile()
 
     buildDateIndex(df, debug)
 
     buildDocIndex(df, debug)
   }
 
-  def getDateIndexFile: DataFrame = {
-    spark.sqlContext.read.parquet(HdfsRootPath + DefaultDateIndexFileName)
+  def getDateIndexFile(fname: String = DefaultDateIndexFileName): DataFrame = {
+    spark.sqlContext.read.parquet(HdfsRootPath + fname)
   }
 
-  def getDocIndexFile: DataFrame = {
-    spark.sqlContext.read.parquet(HdfsRootPath + DefaultDocIndexFileName)
+  def getDocIndexFile(fname: String = DefaultDocIndexFileName): DataFrame = {
+    spark.sqlContext.read.parquet(HdfsRootPath + fname)
   }
 }

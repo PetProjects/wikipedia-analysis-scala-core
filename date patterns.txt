@@ -18,6 +18,7 @@ the \d{3,4}'?s							E.g. "the political turmoil of the 1790s", "which sprang up
 										E.g. "of the early nineteenth century", "in the mid-nineteenth century", "in the mid-20th century", "the fifth-century", "in the late-20th century", "Hispanics in Late-twentieth-century Alabama", "in the 7th century B.C."
 I|in \d{3,4}							E.g. "In 1844"
 of \d{3,4}								E.g. "During the Spanish revolution of 1873"
+
 										E.g. "On January 30, 1846, the Alabama legislature announced", "in December 1847"
 										"The 1.4km line opened on 18 July 1996, 30 years after jet services to the airport commenced."
 										"were permanently populated about 9–8.5 thousand years ago"
@@ -33,6 +34,8 @@ of \d{3,4}								E.g. "During the Spanish revolution of 1873"
 										"finished the project in late 1974"
 										"Proto-writing in the prehistory dates back to c. 3000 BC."
 										"had originally been announced on May 21, 1984"
+										"in her pilgrimage in 326 CE."
+										"presented on June 10 of 2008 in"
 										
 
 Trusted date range patterns:
@@ -60,6 +63,7 @@ Potential patterns:
 Facts:
 -----------------------------
 BCE or B.C.E. may stand for: Before Common Era, an alternative to BC
+CE|C.E. = Current Era = AD, e.g. "in her pilgrimage in 326 CE."
 
 
 Possible false matches:

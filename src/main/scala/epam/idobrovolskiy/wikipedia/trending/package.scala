@@ -1,6 +1,6 @@
 package epam.idobrovolskiy.wikipedia
 
-import epam.idobrovolskiy.wikipedia.trending.time.PlainDatesExtractor
+import epam.idobrovolskiy.wikipedia.trending.time.extractor.stack.{BasicStackedDatesExtractor, InAndYearExtractor, InYearExtractor, OfYearExtractor}
 import epam.idobrovolskiy.wikipedia.trending.tokenizer.StopWordsTokenizer
 import org.apache.hadoop.io.{IntWritable, Text}
 
@@ -29,7 +29,10 @@ package object trending extends scala.AnyRef {
   type PreprocessedSequenceFileKeyType = IntWritable
   type PreprocessedSequenceFileValueType = Text
 
-  val DefaultDatesExtractor = new PlainDatesExtractor
+  val DefaultDatesExtractor = new BasicStackedDatesExtractor //any later mixin (trait) has higher priority, i.e. if both matched single date, later only would have effect on both extract() and extractWithCitations() results.
+    with InYearExtractor
+    with InAndYearExtractor
+    with OfYearExtractor
 
   lazy val spark = common.SparkUtils.sparkSession
 }

@@ -6,7 +6,7 @@ package epam.idobrovolskiy.wikipedia.trending.tokenizer
 class StopWordsTokenizer extends Tokenizer {
 
   override def splitWords(s: String): Seq[String] =
-    s.toLowerCase.split("""[\s,\.!?:\<\>=/'"\(\)\-""" + "\u0096\u0097" + """]+|(%[a-z\d]{2})""").filter(_.length > 0) //TODO: implement better tags handling
+    s.toLowerCase.split("""[\s,\.!?:\<\>=/'"\(\)\-–""" + "\u0096\u0097" + """]+|(%[a-z\d]{2})""").filter(_.length > 0) //TODO: implement better tags handling
 
   override def filterWords(w: String): Boolean =
     ! StopWordsTokenizer.stopWords.contains(w)

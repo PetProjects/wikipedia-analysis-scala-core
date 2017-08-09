@@ -1,12 +1,10 @@
 name := "wikipedia-trending"
 
-version := "1.0"
+version := "0.1"
 
 scalaVersion := "2.11.8"
 
-//libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
-libraryDependencies += "org.scalatest" % "scalatest_2.11" % "3.0.1" % "test"
-//libraryDependencies += "org.apache.lucene" % "lucene-analyzers" % "3.4.0"
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 
 resolvers += "Hortonworks Releases" at "http://repo.hortonworks.com/content/repositories/releases/"
 resolvers += "Hortonworks Jetty Maven Repository" at "http://repo.hortonworks.com/content/repositories/jetty-hadoop/"
@@ -14,7 +12,6 @@ resolvers += "Hortonworks Jetty Maven Repository" at "http://repo.hortonworks.co
 //resolvers += "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository" //unix way
 resolvers += "Local Maven Repository" at "file:///" + Path.userHome.absolutePath.replaceAllLiterally("\\", "/") + "/.m2/repository" //windows way
 
-// https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-common
 libraryDependencies += "org.apache.hadoop" % "hadoop-common" % "2.7.1.2.4.2.10-1"
 
 libraryDependencies ++= {

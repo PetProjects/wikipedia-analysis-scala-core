@@ -15,6 +15,12 @@ class StopWordsTokenizerTest extends FlatSpec with MustMatchers with BeforeAndAf
     tokenizer.tokenize(Seq(sentence)) mustEqual Map("foo" -> 1, "bar" -> 1)
   }
 
+  "Sentence with U+0096 as char in between two words" must "not include delimiters as tokens" in {
+    val sentence = """government – Confederate """
+
+    tokenizer.getTopNTokens(Seq(sentence)) mustEqual Map("government" -> 1, "confederate" -> 1)
+  }
+
   "Sentence with <a> html tags" must "be tokenized properly" in {
     val sentence = "Ambiguity is a type of <a href=\"uncertainty\">uncertainty</a> of <a href=\"meaning%20%28linguistics%29\">meaning</a> in which several interpretations are <a href=\"wikt%3Aplausible%23Adjective\">plausible</a>."
     val expected = Map(

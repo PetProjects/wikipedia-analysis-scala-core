@@ -48,21 +48,21 @@ object WikiQueryApi {
     val distDocCount = df.select('wiki_id).distinct.count
     println(s"Total distinct documents (by dates index) which matched query: $distDocCount")
 
-    val (minKey, maxKey) = df.select(min($"wiki_date"), max($"wiki_date")).collect
+    val (minKey, maxKey) = df.select(min('wiki_date), max('wiki_date)).collect
       .map(r => (r.getLong(0), r.getLong(1))).head
 
     println(s"Whole index info:\n  min date(ser)=$minKey; max date(ser)=$maxKey")
 
-    val altDistDocCount = df.where($"wiki_date" >= minKey && $"wiki_date" <= maxKey).select('wiki_id).distinct.count
+    val altDistDocCount = df.where('wiki_date >= minKey && 'wiki_date <= maxKey).select('wiki_id).distinct.count
     println(s"  distinct doc count for actual [min date..max date]=$altDistDocCount")
 
-    val futureDocs = df.where($"wiki_date" > untilSer)
+    val futureDocs = df.where('wiki_date > untilSer)
     println(s"Some wiki docs from the future (total count=${futureDocs.count}):")
     futureDocs.show(30)
   }
 
   private def getDatesForPeriod(since: WikiDate, until: WikiDate, debug: Boolean): DataFrame = {
-    val df = WikiDocumentIndexer.getDateIndexFile
+    val df = WikiDocumentIndexer.getDateIndexFile()
 
     val sinceSer = since.serialize
     val untilSer = until.serialize
@@ -72,17 +72,17 @@ object WikiQueryApi {
 
     import df.sqlContext.implicits._
 
-    df.where($"wiki_date" >= sinceSer && $"wiki_date" <= untilSer)
+    df.where('wiki_date >= sinceSer && 'wiki_date <= untilSer)
   }
 
-  private def getAllDocs: DataFrame = WikiDocumentIndexer.getDocIndexFile
+  private def getAllDocs: DataFrame = WikiDocumentIndexer.getDocIndexFile()
 
   private def getDocsForPeriod(since: WikiDate, until: WikiDate, debug: Boolean): DataFrame = {
     val df = getDatesForPeriod(since, until, debug)
 
     import df.sqlContext.implicits._
 
-    val ids = df.select($"wiki_id").distinct()
+    val ids = df.select('wiki_id).distinct()
     val docs = getAllDocs
 
     ids.join(docs, ids("wiki_id") === docs("wiki_id")).drop(ids("wiki_id"))
