@@ -9,51 +9,66 @@ re{ n,}	Matches n or more occurrences of preceding expression.
 re{ n, m}	Matches at least n and at most m occurrences of preceding expression.
 \\d	Matches digits. Equivalent to [0-9].
 (?: re)	Groups regular expressions without remembering matched text.
+more: https://www.tutorialspoint.com/scala/scala_regular_expressions.htm
 
 
 Trusted single date patterns:
 -----------------------------
-the \d{3,4}'?s							E.g. "the political turmoil of the 1790s", "which sprang up in the early 1860's."
-\d{1,2}th(?:[ -])century(?: BC| AD)?	E.g. "in the 6th century BC", "in the 17th century in England", "in 18th-century", "(5th century AD)"
-										E.g. "of the early nineteenth century", "in the mid-nineteenth century", "in the mid-20th century", "the fifth-century", "in the late-20th century", "Hispanics in Late-twentieth-century Alabama", "in the 7th century B.C."
-I|in \d{3,4}							E.g. "In 1844"
-of \d{3,4}								E.g. "During the Spanish revolution of 1873"
+[+]	InYearExtractor						"In 1844"
+[+]	OfYearExtractor						"During the Spanish revolution of 1873"
+[+]	InMonthYearExtractor				"in December 1847"
+[+]	OnMonthDayYearExtractor				"On January 30, 1846, the Alabama legislature announced"
+[-]										"The 1.4km line opened on 18 July 1996, 30 years after jet services to the airport commenced."
+[-]										"finished the project in late 1974"
+[-]										"in her pilgrimage in 326 CE."
+[+]	OnMonthDayYearExtractor				"presented on June 10 of 2008 in"
+[+]	InMonthYearExtractor				"He divorced his wife, <a href="Irma%20Raush">Irma Raush</a>, in June 1970."
+[+]	OnMonthDayYearExtractor				"had originally been announced on May 21, 1984"
 
-										E.g. "On January 30, 1846, the Alabama legislature announced", "in December 1847"
-										"The 1.4km line opened on 18 July 1996, 30 years after jet services to the airport commenced."
-										"were permanently populated about 9–8.5 thousand years ago"
-										"in ancient China over two thousand years ago"
-										"although domesticated eight to ten thousand years ago"
-										"(fifth century BC)"
-										"About a thousand years ago"
-										"over twenty thousand years ago"
-										"since the end of the IV century"
-										"that traces its history back to the XVII century"
-										"whom he married in April 1957"
-										"He divorced his wife, <a href="Irma%20Raush">Irma Raush</a>, in June 1970."
-										"finished the project in late 1974"
-										"Proto-writing in the prehistory dates back to c. 3000 BC."
-										"had originally been announced on May 21, 1984"
-										"in her pilgrimage in 326 CE."
-										"presented on June 10 of 2008 in"
-										
+[-]										"the political turmoil of the 1790s"
+[-]										"which sprang up in the early 1860's."
+[-]										"during the early 1910s"
+
+[-]										"in the 6th century BC"
+[-]										"in the 17th century in England"
+[-]										"in 18th-century"
+[-]										"(5th century AD)"
+[-]										"of the early nineteenth century"
+[-]										"in the mid-nineteenth century"
+[-]										"in the mid-20th century"
+[-]										"the fifth-century"
+[-]										"in the late-20th century"
+[-]										"Hispanics in Late-twentieth-century Alabama"
+[-]										"in the 7th century B.C."
+[-]										"(fifth century BC)"
+[-]										"since the end of the IV century"
+[-]										"that traces its history back to the XVII century"
+
+[-]										"were permanently populated about 9–8.5 thousand years ago"
+[-]										"in ancient China over two thousand years ago"
+[-]										"although domesticated eight to ten thousand years ago"
+[-]										"About a thousand years ago"
+[-]										"over twenty thousand years ago"
+
+[-]										"Proto-writing in the prehistory dates back to c. 3000 BC."
+
 
 Trusted date range patterns:
 -----------------------------
-between \d{3,4} and \d{3,4}				E.g. "Numerous heads of state were assassinated between 1881 and 1914"
-of \d{4}\-\d{2}							E.g. "The revolutionary wave of 1917–23"
-\(\d{3,4}\-\d{3,4}\)					E.g. "causing the Spanish Civil War (1936–1939)"
-										"(1939–1977)" // NOTE! U+0096 in between!
-										"from 1901 to the 1960s"
-										"In 1998 and 1999, there was", "followed in 1958 and 1959"
-										"Roman</a> influence from the II century BC to the V century AD"
-										"Councils of Arabia</a> (246–247)"
-										"From November 1947 to spring 1948 he was in the hospital with"
-										"settled between c. 5500 and 4000 BC"
+[+]	InAndYearExtractor					"In 1998 and 1999, there was"
+[+]	InAndYearExtractor					"followed in 1958 and 1959"
+[-]										"Numerous heads of state were assassinated between 1881 and 1914"
+[-]										"The revolutionary wave of 1917–23"
+[-]										"causing the Spanish Civil War (1936–1939)"
+[-]										"(1939–1977)" // NOTE! U+0096 in between!
+[-]										"from 1901 to the 1960s"
+[-]										"Roman</a> influence from the II century BC to the V century AD"
+[-]										"Councils of Arabia</a> (246–247)"
+[-]										"From November 1947 to spring 1948 he was in the hospital with"
+[-]										"settled between c. 5500 and 4000 BC"
 
 Potential patterns:
 -----------------------------
-"during the early 1910s"
 "After 1953, more films were produced,"
 "Before 1953, annual film production was low"
 "they had been living together since 1965"

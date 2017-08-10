@@ -171,4 +171,5 @@ object WikiDate {
   val Now = WikiDate.fromTraditionalDate(LocalDate.now())
   val MinDate = WikiDate.fromTraditionalDate(LocalDate.MIN)
   val MaxDate = WikiDate.fromTraditionalDate(LocalDate.MAX)
+  val NoDate = WikiDate(None, None, None, None, None, None, None)
 }

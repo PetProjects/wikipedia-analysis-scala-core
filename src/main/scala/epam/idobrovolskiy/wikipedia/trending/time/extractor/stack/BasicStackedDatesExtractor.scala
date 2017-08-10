@@ -8,7 +8,7 @@ import scala.util.matching.Regex
 /**
   * Created by Igor_Dobrovolskiy on 08.08.2017.
   */
-class BasicStackedDatesExtractor extends DatesExtractor with WikiCitationMaker {
+class BasicStackedDatesExtractor extends DatesExtractor {
 
   protected case class WikiDateExtraction
   (
@@ -18,15 +18,17 @@ class BasicStackedDatesExtractor extends DatesExtractor with WikiCitationMaker {
   )
 
   final def extract(s: String): Set[WikiDate] =
-    appendDates(-1, s, Iterator.empty)
-      .map(_.date)
+    appendDates(-1 /*id doesn't matter here*/, s.toLowerCase, Iterator.empty)
+      .toList
+      .groupBy(_.dateStartInd)
+      .map { case (_, r) => r.head.date }
       .toSet
 
   final def extractWithCitations(id: Int, s: String): Set[(WikiDate, WikiCitation)] =
-    appendDates(id, s, Iterator.empty)
+    appendDates(id, s.toLowerCase, Iterator.empty)
       .toList
       .groupBy(_.dateStartInd)
-      .map { case (_, r) => (r.head.date, makeCitation(id, s, r.head.m))}
+      .map { case (_, r) => (r.head.date, WikiCitation(id, s, r.head.m)) }
       .toSet
 
   protected def appendDates(id: Int, s: String, it: Iterator[WikiDateExtraction]) = it

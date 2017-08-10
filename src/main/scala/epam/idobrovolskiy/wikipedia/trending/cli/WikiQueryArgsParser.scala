@@ -1,5 +1,6 @@
 package epam.idobrovolskiy.wikipedia.trending.cli
 
+import epam.idobrovolskiy.wikipedia.trending._
 import epam.idobrovolskiy.wikipedia.trending.time.{WikiDate, WikiDateRange}
 
 /**
@@ -7,7 +8,9 @@ import epam.idobrovolskiy.wikipedia.trending.time.{WikiDate, WikiDateRange}
   */
 object WikiQueryArgsParser {
   val usage =
-    """ Usage:
+    s"$AppName - $AppVersion" +
+    """
+      |Usage:
       | WikiQuery (--tokens|--articles [{HDF} | {HDF}-{HDF} | {HDF}-[NOW] | [GENESIS]-{HDF}] )
       |    | (--distribution {token})
       |    [--help] [--debug]

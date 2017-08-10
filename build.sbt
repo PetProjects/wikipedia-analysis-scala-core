@@ -1,6 +1,6 @@
 name := "wikipedia-trending"
 
-version := "0.1"
+version := "0.1.1"
 
 scalaVersion := "2.11.8"
 
@@ -24,3 +24,21 @@ libraryDependencies ++= {
     "org.apache.spark" % "spark-hive_2.11" % sparkVer % "provided" withSources()
   )
 }
+
+//lazy val root = (project in file(".")).
+//  enablePlugins(BuildInfoPlugin).
+//  settings(
+//    buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
+//    buildInfoPackage := "epam.idobrovolskiy.wikipedia.trending"
+//  )
+//
+//sourceGenerators in Compile <+= (sourceManaged in Compile, version, name) map { (d, v, n) =>
+//  val file = d / "PackageInfo.scala"
+//  IO.write(file, """package epam.idobrovolskiy.wikipedia.trending
+//                   |object PackageInfo {
+//                   |  val version = "%s"
+//                   |  val name = "%s"
+//                   |}
+//                   |""".stripMargin.format(v, n))
+//  Seq(file)
+//}

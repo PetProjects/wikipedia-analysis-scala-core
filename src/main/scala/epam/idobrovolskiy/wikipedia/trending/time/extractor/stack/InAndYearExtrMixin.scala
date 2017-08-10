@@ -5,9 +5,9 @@ import epam.idobrovolskiy.wikipedia.trending.time.WikiDate
 /**
   * Created by Igor_Dobrovolskiy on 08.08.2017.
   */
-trait InAndYearExtractor extends BasicStackedDatesExtractor {
+trait InAndYearExtrMixin extends BasicStackedDatesExtractor {
 
-  private val re = """(?:[^\w]|^)[Ii]n\s+(\d{3,4})\s+and\s+(\d{3,4})(?:[\s\.,]|$)""".r
+  private val re = """(?:[^\w]|^)in\s+(\d{3,4})\s+and\s+(\d{3,4})(?:[\s\.,]|$)""".r
 
   def extractInAndYearDates(id: Int, s: String): Iterator[WikiDateExtraction] = (
       for {

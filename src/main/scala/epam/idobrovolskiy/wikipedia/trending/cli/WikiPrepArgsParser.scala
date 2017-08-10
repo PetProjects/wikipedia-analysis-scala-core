@@ -11,7 +11,9 @@ import scala.annotation.tailrec
 
 object WikiPrepArgsParser {
   val usage =
-    """ Usage:
+    s"$AppName - $AppVersion" +
+    """
+      |Usage:
       | WikiPrep [--extract-plaintext [{target folder for plaintext files} [{wiki dumps path}]]]
       |     [--full-text] [--no-stdout] [--to-local-file] [--to-hdfs-plain-file]
       |     [--to-hdfs-seq-file]

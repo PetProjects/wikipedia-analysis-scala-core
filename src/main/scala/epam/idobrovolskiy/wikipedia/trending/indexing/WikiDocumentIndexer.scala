@@ -90,7 +90,7 @@ object WikiDocumentIndexer {
 
     val extractDatesAndCitations = udf { (id: Int, body: String) =>
       datesExtractor.extractWithCitations(id, body)
-        .map { case (date, citation) => s"id=$id, $date => $citation" }
+        .map { case (date, citation) => s"$date => $citation" }
         .toSeq
     }
 
@@ -153,7 +153,13 @@ object WikiDocumentIndexer {
     val tokensMapToString = udf { (map: Map[String, Int]) => map.toString }
 
     SparkUtils.saveAsCsv(
-      docsIndex.limit(1000).select(tokensMapToString('top_tokens)),
+      docsIndex
+        .limit(1000)
+        .select(
+          'wiki_id,
+          'wiki_url,
+          tokensMapToString('top_tokens)
+        ),
       DefaultDocIndexFileName + ".debug")
   }
 

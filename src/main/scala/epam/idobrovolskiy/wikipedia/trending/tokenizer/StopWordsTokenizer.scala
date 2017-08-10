@@ -28,5 +28,5 @@ object StopWordsTokenizer {
       "wikt", //because of '<a href="wikt%3Aplausible%23Adjective">'
       "la", "de", "s",
       "u", "q", //what are these?
-      "href", "http%3a", "https%3a") //TODO: remove when better tags handling is implemented
+      "href", "http", "https", "http%3a", "https%3a") //TODO: remove when better tags handling is implemented
 }
