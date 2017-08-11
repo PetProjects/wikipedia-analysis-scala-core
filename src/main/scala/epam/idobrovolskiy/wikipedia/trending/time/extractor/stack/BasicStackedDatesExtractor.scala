@@ -18,7 +18,7 @@ class BasicStackedDatesExtractor extends DatesExtractor {
   )
 
   final def extract(s: String): Set[WikiDate] =
-    appendDates(-1 /*id doesn't matter here*/, s.toLowerCase, Iterator.empty)
+    appendDates(-1 /*id doesn't matter here*/ , s.toLowerCase, Iterator.empty)
       .toList
       .groupBy(_.dateStartInd)
       .map { case (_, r) => r.head.date }
@@ -31,5 +31,6 @@ class BasicStackedDatesExtractor extends DatesExtractor {
       .map { case (_, r) => (r.head.date, WikiCitation(id, s, r.head.m)) }
       .toSet
 
-  protected def appendDates(id: Int, s: String, it: Iterator[WikiDateExtraction]) = it
+  protected def appendDates(id: Int, s: String, it: Iterator[WikiDateExtraction]) =
+    it.filter(_.date != WikiDate.NoDate)
 }

@@ -7,8 +7,8 @@ import scala.util.matching.Regex
 /**
   * Created by Igor_Dobrovolskiy on 10.08.2017.
   */
-trait ExceptionLoggerExtrMixin extends BasicStackedDatesExtractor {
-  def extractionIssuesLogger(issueDescription: String): Unit
+trait ExtractionLogger extends BasicStackedDatesExtractor {
+  def logExtractionIssue(issueDescription: String): Unit
 
   def tryExtract(dateStartInd: Int, m: Regex.Match)(pDate: => WikiDate): WikiDateExtraction =
     try {
@@ -16,7 +16,7 @@ trait ExceptionLoggerExtrMixin extends BasicStackedDatesExtractor {
     }
     catch {
       case ex: Exception =>
-        extractionIssuesLogger(s"Failed extracting date for '${m.matched}'\n$ex")
+        logExtractionIssue(s"Failed extracting date for '${m.matched}'\n$ex")
         WikiDateExtraction(WikiDate.NoDate, dateStartInd, m)
     }
 }

@@ -20,10 +20,23 @@ Trusted single date patterns:
 [+]	OnMonthDayYearExtractor				"On January 30, 1846, the Alabama legislature announced"
 [-]										"The 1.4km line opened on 18 July 1996, 30 years after jet services to the airport commenced."
 [-]										"finished the project in late 1974"
-[-]										"in her pilgrimage in 326 CE."
+[+] YearEraExtrMixin					"in her pilgrimage in 326 CE."
 [+]	OnMonthDayYearExtractor				"presented on June 10 of 2008 in"
 [+]	InMonthYearExtractor				"He divorced his wife, <a href="Irma%20Raush">Irma Raush</a>, in June 1970."
 [+]	OnMonthDayYearExtractor				"had originally been announced on May 21, 1984"
+[+]	YearEraExtrMixin					"King Satakarni (241 BC), the son of "
+[?]	YearEraExtrMixin					" in approximately 7000 BC."
+[+]	YearEraExtrMixin					"was born around 1500 BC."
+[?]	YearEraExtrMixin					"Meanwhile, around 1180 BC, Moses was born in Egypt"
+[+]	YearEraExtrMixin					"In 32 BC, Jesus Christ was born in Israel."
+[+]	YearEraExtrMixin					"In 1046 B.C., "
+[+]	YearEraExtrMixin					"upon sacking Napata in 591 BCE under the reign"
+[+]	YearEraExtrMixin					"having been drilled dating to 7,000 B.C.E."
+[+]	YearEraExtrMixin					"In 17,000 B.C.E., one of them defied his brothers"
+[?]	YearEraExtrMixin					"Proto-writing in the prehistory dates back to c. 3000 BC."
+[-]										"Long-term changes in the rotation of the earth – 700 B.C. to A.D. 1980"
+[-]										"Japan from the Earliest Times to A.D. 697"
+[-]										"First Synod of Tyre</a> in AD 335,"
 
 [-]										"the political turmoil of the 1790s"
 [-]										"which sprang up in the early 1860's."
@@ -31,6 +44,8 @@ Trusted single date patterns:
 
 [-]										"in the 6th century BC"
 [-]										"in the 17th century in England"
+[-]										"as early as the 7th century BC."
+[-]										"By the 3rd century BC, "
 [-]										"in 18th-century"
 [-]										"(5th century AD)"
 [-]										"of the early nineteenth century"
@@ -40,17 +55,18 @@ Trusted single date patterns:
 [-]										"in the late-20th century"
 [-]										"Hispanics in Late-twentieth-century Alabama"
 [-]										"in the 7th century B.C."
+[-]										"Neolithic–7th century (B.C.E.)"
 [-]										"(fifth century BC)"
 [-]										"since the end of the IV century"
 [-]										"that traces its history back to the XVII century"
+[-]										"The 2nd-century astronomer and geographer <a href="Claudius%20Ptolemy">Claudius Ptolemy"
+[-]										"from as early as the 10th century A.D."
 
 [-]										"were permanently populated about 9–8.5 thousand years ago"
 [-]										"in ancient China over two thousand years ago"
 [-]										"although domesticated eight to ten thousand years ago"
 [-]										"About a thousand years ago"
 [-]										"over twenty thousand years ago"
-
-[-]										"Proto-writing in the prehistory dates back to c. 3000 BC."
 
 
 Trusted date range patterns:
@@ -59,13 +75,24 @@ Trusted date range patterns:
 [+]	InAndYearExtractor					"followed in 1958 and 1959"
 [-]										"Numerous heads of state were assassinated between 1881 and 1914"
 [-]										"The revolutionary wave of 1917–23"
+[-]										"and by an <a href="Amazons">Amazon</a> depicted about 450-400 BCE."
+[-]										"A Scythian is depicted using this draw about 500-450 BCE."
 [-]										"causing the Spanish Civil War (1936–1939)"
+[-]										"Until the <a href="Greco-Turkish%20War%20%281919%E2%80%931922%29">Greco-Turkish War (1919–1922)</a>"
 [-]										"(1939–1977)" // NOTE! U+0096 in between!
 [-]										"from 1901 to the 1960s"
 [-]										"Roman</a> influence from the II century BC to the V century AD"
 [-]										"Councils of Arabia</a> (246–247)"
 [-]										"From November 1947 to spring 1948 he was in the hospital with"
 [-]										"settled between c. 5500 and 4000 BC"
+[-]										"during the reign of <a href="Alexander%20I%20of%20Macedon">Alexander I</a> (r. 498–454 BC)."
+[-]										"'Linear-relief' pottery was also found at Fukui Cave Layer III dating to 13,850–12,250 BC."
+[-]										"(13 April 1949 – 15 December 2011)"
+[-]										"(November 15, 1902-July 26, 1975 )"
+[-]										"dated between the 9th and the 13th century,"
+[-]										"Iron Age I</a> (12-11th centuries B.C.E.)"
+[-]										"The crossroads of civilizations: A.D. 250 to 750"
+[-]										">Marcus Aurelius</a> (121 to 180 A.D.)"
 
 Potential patterns:
 -----------------------------
@@ -73,12 +100,35 @@ Potential patterns:
 "Before 1953, annual film production was low"
 "they had been living together since 1965"
 "In a 1962 interview, Tarkovsky argued,"
+"he was 65, and again in 1776, 1779, 1781, and 1783"
+"Archelaus I of Macedon</a> supplied wood to Athens and takes the titles of "<a href="proxenos">proxenos</a>" and "euergetes" in 407/6 BC."
+"<a href="Cleopatra%20Euergetis">Cleopatra Euergetis</a>, queen of Egypt, reigned 142–101 BC"
+"<a href="Ptolemy%20VIII%20Euergetes%20II">Ptolemy VIII Euergetes II</a>, king of Egypt, reigned 169–164, 144–132, 126–116 BC"
+"fragments which have been dated as early as 14,500 BC (ca 16,500 <a href="Before%20Present">BP</a>)"
+"in the northwest coast of modern-day Kyushu date back to as far as 12,700 BCE in radiometric dating tests."
+"in <a href="Fukui%20prefecture">Fukui prefecture</a>, dating to 12000-11000 BC."
+"Some sources claim archaeological discoveries as far back as the 14th millennium BCE."
+"The Jōmon Period in Ancient Japan lasted until roughly 300 BCE. From there, it is divided into six periods: Incipient Jōmon, from 10,500–8,000 BCE, Earliest Jōmon, from 8,000–5,000 BCE, Early Jōmon, from 5,000–2,500 BCE, Middle Jōmon, from 2,500- 1,500 BCE, Late Jōmon, from 1,500–1,000 BCE, and Final Jōmon, from 1,000–300 BCE."
+"at about 3000 BC until the <a href="Early%20Middle%20Ages">Early Middle Ages</a>."
+"The span of recorded history is roughly 5,000 – 5,500 years, beginning with <a href="Sumerian%20language">Sumerian</a>"
+"Archaic period in classical antiquity</a> (c.8th to c.6th centuries BC)"
+"(5th to 4th centuries BC)"
+"(323 BC to 146 BC)"
+"(1st century BC to 5th century AD)"
+"(c. 340-c. 250 BCE)"
+"In the pre-<a href="Qin%20dynasty">Qin</a> period (21st century-221 BC),"
+"vase painter active in <a href="Athens">Athens</a> from "circa" 480 to 460 BC."
+"red-figure</a> style active in <a href="Attica">Attica</a> between 370 and 340/330 BC. "
+"(early 5th century BCE)"
+"In the beginning of \"Age of Extinction\", 65 million B.C.E.,"
+"<a href="Tertullian">Tertullian</a> (c. a.d. 160–225) wrote that"
 
 
 Facts:
 -----------------------------
 BCE or B.C.E. may stand for: Before Common Era, an alternative to BC
 CE|C.E. = Current Era = AD, e.g. "in her pilgrimage in 326 CE."
+"1405 (807 <a href="Islamic%20calendar">AH</a>) to about AD 2045 (1467 AH)."
 
 
 Possible false matches:

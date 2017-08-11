@@ -95,48 +95,39 @@ case class WikiDate private
 }
 
 object WikiDate {
-  //  def apply(
-//    day: Option[Byte],
-//    month: Option[Month],
-//    year: Option[Short],
-//    decade: Option[Short],
-//    century: Option[Short],
-//    thousandYearsAgo: Option[Int],
-//    isCommonEra: Option[Boolean]
-//  ) = new WikiDate(day, month, year, decade, century, thousandYearsAgo, isCommonEra)
 
-  def date(year: Int) =
-    WikiDate(None, None, Some(year), None, None, None, Some(true))
+  def date(year: Int, isCommonEra: Boolean) =
+    WikiDate(None, None, Some(year), None, None, None, Some(isCommonEra))
 
-  def date(year: Int, month: Month) =
-    WikiDate(None, Some(month), Some(year), None, None, None, Some(true))
+  def date(year: Int, month: Month, isCommonEra: Boolean) =
+    WikiDate(None, Some(month), Some(year), None, None, None, Some(isCommonEra))
 
-  def date(year: Int, month: Month, day: Int) =
-    WikiDate(Some(day.toByte), Some(month), Some(year), None, None, None, Some(true))
+  def date(year: Int, month: Month, day: Int, isCommonEra: Boolean) =
+    WikiDate(Some(day.toByte), Some(month), Some(year), None, None, None, Some(isCommonEra))
 
   val AD =
     WikiDate(None, None, None, None, None, None, Some(true))
 
   def AD(year: Int) =
-    date(year)
+    date(year, true)
 
   def AD(year: Int, month: Month) =
-    date(year, month)
+    date(year, month, true)
 
   def AD(year: Int, month: Month, day: Int) =
-    date(year, month, day)
+    date(year, month, day, true)
 
   val BC =
     WikiDate(None, None, None, None, None, None, Some(false))
 
   def BC(year: Int) =
-    WikiDate(None, None, Some(year), None, None, None, Some(false))
+    date(year, false)
 
   def BC(year: Int, month: Month) =
-    WikiDate(None, Some(month), Some(year), None, None, None, Some(false))
+    date(year, month, false)
 
   def BC(year: Int, month: Month, day: Int) =
-    WikiDate(Some(day.toByte), Some(month), Some(year), None, None, None, Some(false))
+    date(year, month, day, false)
 
   def decade(dec: Int) =
     WikiDate(None, None, None, Some(dec.toShort), None, None, Some(true))
@@ -160,7 +151,7 @@ object WikiDate {
     WikiDate(None, None, None, None, None, Some(thYears), Some(isCommonEra))
 
   def fromTraditionalDate(ld: LocalDate) =
-    date(ld.getYear, ld.getMonth, ld.getDayOfMonth)
+    date(math.abs(ld.getYear), ld.getMonth, ld.getDayOfMonth, ld.getYear > 0)
 
   def serialize(wikiDate: WikiDate) : Long =
     wikiDate.toClosestTraditionalDate.toEpochDay
@@ -171,5 +162,5 @@ object WikiDate {
   val Now = WikiDate.fromTraditionalDate(LocalDate.now())
   val MinDate = WikiDate.fromTraditionalDate(LocalDate.MIN)
   val MaxDate = WikiDate.fromTraditionalDate(LocalDate.MAX)
-  val NoDate = WikiDate(None, None, None, None, None, None, None)
+  val NoDate = WikiDate(None, None, None, None, None, None, None) //TODO: deliberate possible issues of NoDate.serialize is just 1 (Int) more than BC(1,December,31)
 }
