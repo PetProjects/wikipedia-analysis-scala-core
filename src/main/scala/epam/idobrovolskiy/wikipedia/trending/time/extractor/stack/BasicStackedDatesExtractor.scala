@@ -17,14 +17,14 @@ class BasicStackedDatesExtractor extends DatesExtractor {
     m: Regex.Match
   )
 
-  final def extract(s: String): Set[WikiDate] =
+  def extract(s: String): Set[WikiDate] =
     appendDates(-1 /*id doesn't matter here*/ , s.toLowerCase, Iterator.empty)
       .toList
       .groupBy(_.dateStartInd)
       .map { case (_, r) => r.head.date }
       .toSet
 
-  final def extractWithCitations(id: Int, s: String): Set[(WikiDate, WikiCitation)] =
+  def extractWithCitations(id: Int, s: String): Set[(WikiDate, WikiCitation)] =
     appendDates(id, s.toLowerCase, Iterator.empty)
       .toList
       .groupBy(_.dateStartInd)

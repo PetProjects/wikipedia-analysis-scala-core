@@ -18,6 +18,10 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/../../target/scala-2.11/resource_managed/test" type="java-test-resource" />
       <excludeFolder url="file://$MODULE_DIR$/../../target" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/resolution-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/scala-2.12" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/streams" />
+      <excludeFolder url="file://$MODULE_DIR$/../../target/test-reports" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -225,5 +229,6 @@
     <orderEntry type="library" scope="PROVIDED" name="SBT: org.spark-project.hive:hive-exec:1.2.1.spark2:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="SBT: org.spark-project.hive:hive-metastore:1.2.1.spark2:jar" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="SBT: stax:stax-api:1.0.1:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scalatest:scalatest_2.11:2.2.6:jar" level="project" />
   </component>
 </module>

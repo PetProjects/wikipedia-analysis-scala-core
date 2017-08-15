@@ -10,7 +10,8 @@ case class TokensForPeriodQueryArgs
   since: WikiDate,
   until: WikiDate,
   topN: Int = 10,
-  override val debug: Boolean = false
+  override val debug: Boolean = false,
+  override val queryVersion: Int = -1
 )
   extends WikiQueryArgs
 {

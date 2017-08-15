@@ -17,6 +17,7 @@ package object trending extends scala.AnyRef {
   val DefaultDateCitationsFileName = "wiki_date_citations"
   val DefaultDateIndexFileName = "wiki_index_dates"
   val DefaultDocIndexFileName = "wiki_index_docs"
+  val DefaultDrDocIndexFileName = "wiki_index_date_ranges"
 
   val DefaultTarget = preprocessing.PreprocessingTarget.Stdout
   val DefaultPathForPlainTextExtraction = "./data/out"

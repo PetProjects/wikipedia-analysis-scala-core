@@ -7,7 +7,10 @@ import epam.idobrovolskiy.wikipedia.trending.indexing.WikiDocumentIndexer
   */
 object WikiIndex extends App {
 
-  WikiDocumentIndexer.buildIndex(args.contains("--debug"))
+  if (args.contains("--v2") || args.contains("--dr"))
+    WikiDocumentIndexer.buildDateRangesDocIndex(args.contains("--debug"))
+  else
+    WikiDocumentIndexer.buildIndex(args.contains("--debug"))
 
   spark.stop()
 }

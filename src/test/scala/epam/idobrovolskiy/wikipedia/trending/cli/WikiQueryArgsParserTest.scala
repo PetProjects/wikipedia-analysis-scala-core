@@ -39,4 +39,22 @@ class WikiQueryArgsParserTest extends FlatSpec with Matchers {
 
     WikiQueryArgsParser.parse(args) shouldEqual tokensDebugExpected
   }
+
+  "CLI with '--tokens' and '--version=1' option" should "be parsed properly" in {
+    val args = Array("--tokens","--version=1")
+
+    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = false, queryVersion = 1))
+  }
+
+  it should "work the same when options are placed in reversed order" in {
+    val args = Array("--version=1", "--tokens")
+
+    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = false, queryVersion = 1))
+  }
+
+  "CLI with '--tokens' and '--version=2' option" should "be parsed properly" in {
+    val args = Array("--tokens","--version=2")
+
+    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = false, queryVersion = 2))
+  }
 }

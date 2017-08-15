@@ -13,6 +13,7 @@ object WikiQueryArgsParser {
       |Usage:
       | WikiQuery (--tokens|--articles [{HDF} | {HDF}-{HDF} | {HDF}-[NOW] | [GENESIS]-{HDF}] )
       |    | (--distribution {token})
+      |    [--version={version_number or -1 for latest}
       |    [--help] [--debug]
       |
       |  {HDF}={historical date format} Examples:
@@ -45,15 +46,18 @@ object WikiQueryArgsParser {
     """.stripMargin
 
 
+  def buildTokensArgs(defArgs: WikiQueryArgs, since: WikiDate = WikiDate.MinDate, until: WikiDate = WikiDate.Now): WikiQueryArgs =
+    TokensForPeriodQueryArgs(since, until, debug = defArgs.debug, queryVersion = defArgs.queryVersion)
+
   private def parseTokensArgs(argList: List[String], defArgs: WikiQueryArgs): Option[WikiQueryArgs] =
     argList match {
       case Nil => Some(defArgs)
       case "--tokens" :: tail => //setting up default time frame at first, then it will be overriden by specific dates, once specified.
-        parseTokensArgs(tail, TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = defArgs.debug))
+        parseTokensArgs(tail, buildTokensArgs(defArgs))
       case dates :: tail if ! dates.startsWith("--") => { //anything, not an option, must be date or date range
         WikiDateRangeParser.parse(dates) match {
           case Some(range) =>
-            parseTokensArgs(tail, TokensForPeriodQueryArgs(range.since, range.until, debug = defArgs.debug))
+            parseTokensArgs(tail, buildTokensArgs(defArgs, range.since, range.until))
 
           case None => {
 //            println(s"\"${dates}\" is invalid date/date range.")
@@ -71,22 +75,38 @@ object WikiQueryArgsParser {
 
   private def parseDistributionArgs(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = ???
 
-  def duplicateQueryType: WikiQueryArgs = {
+  private def duplicateQueryType: WikiQueryArgs = {
     println("Multiple query types in single query are not allowed.")
     InvalidArgs
   }
 
-  def argsForQueryType(tail: List[String], defArgs: WikiQueryArgs, qType: WikiQueryType.Value) =
+  private def argsForQueryType(tail: List[String], defArgs: WikiQueryArgs, qType: WikiQueryType.Value) =
     if (defArgs.queryType == null || defArgs.queryType == qType)
       parseCommonOptions(
         tail,
-        new WikiQueryArgs {
-          override val queryType = qType
-          override val debug = defArgs.debug
-        }
+        WikiQueryArgs (qType, defArgs.debug, defArgs.queryVersion)
       )
     else
       duplicateQueryType
+
+  private def argsForDebug(tail: List[String], defArgs: WikiQueryArgs, debugFlag: Boolean = true) =
+    parseCommonOptions(tail,
+      WikiQueryArgs(defArgs.queryType, debugFlag, defArgs.queryVersion))
+
+  private def argsForVersion(tail: List[String], defArgs: WikiQueryArgs, versionOpt: String) = {
+    try {
+      val version = versionOpt.split('=')(1).toInt
+
+      parseCommonOptions(tail,
+        WikiQueryArgs(defArgs.queryType, defArgs.debug, version))
+    }
+    catch {
+      case ex: Exception => {
+        println(s"Invalid query version specified: $versionOpt")
+        InvalidArgs
+      }
+    }
+  }
 
   private def parseCommonOptions(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = {
     argList match {
@@ -98,22 +118,18 @@ object WikiQueryArgsParser {
 
       case "--distribution" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.PeriodDistributionForToken)
 
-      case "--debug" :: tail =>
-        parseCommonOptions(tail, new WikiQueryArgs {
-          override val debug = true
-          override val queryType = defArgs.queryType
-        })
+      case "--debug" :: tail => argsForDebug(tail, defArgs)
 
       case "--help" :: _ => InvalidArgs
+
+      case opt :: tail if opt.startsWith("--version=") => argsForVersion(tail, defArgs, opt)
 
       case _ :: tail => //not a common option, leaving it for specific parser
         parseCommonOptions(tail, defArgs)
     }
   }
 
-  val InvalidArgs = new WikiQueryArgs {
-    val queryType = null
-  }
+  val InvalidArgs = WikiQueryArgs(null)
 
   def parse(args: Array[String]): Option[WikiQueryArgs] = {
     val argList = args.toList

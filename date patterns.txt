@@ -34,7 +34,6 @@ Trusted single date patterns:
 [+]	YearEraExtrMixin					"having been drilled dating to 7,000 B.C.E."
 [+]	YearEraExtrMixin					"In 17,000 B.C.E., one of them defied his brothers"
 [?]	YearEraExtrMixin					"Proto-writing in the prehistory dates back to c. 3000 BC."
-[-]										"Long-term changes in the rotation of the earth – 700 B.C. to A.D. 1980"
 [-]										"Japan from the Earliest Times to A.D. 697"
 [-]										"First Synod of Tyre</a> in AD 335,"
 
@@ -93,6 +92,7 @@ Trusted date range patterns:
 [-]										"Iron Age I</a> (12-11th centuries B.C.E.)"
 [-]										"The crossroads of civilizations: A.D. 250 to 750"
 [-]										">Marcus Aurelius</a> (121 to 180 A.D.)"
+[-]										"Long-term changes in the rotation of the earth – 700 B.C. to A.D. 1980"
 
 Potential patterns:
 -----------------------------

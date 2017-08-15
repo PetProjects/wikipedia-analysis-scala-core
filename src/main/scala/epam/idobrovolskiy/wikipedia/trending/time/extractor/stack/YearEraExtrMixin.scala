@@ -8,7 +8,6 @@ import epam.idobrovolskiy.wikipedia.trending.time.WikiDate
 trait YearEraExtrMixin extends BasicStackedDatesExtractor with BasicEraExtrMixin with ExtractionLogger {
 
   private val re = ("""(?:\s|\()(\d{0,2}(?:\,?\d)?\d\d)\s""" + //should 6th \d? be added at the beginning of year group? should 2nd digit in year be optional?
-//  private val re = ("""\s|\((\d{2,5})\s""" + //should 6th \d? be added at the beginning of year group?
     reEra + """(?:[\s\.,\)]|$)""").r //should "\?\!" be added as allowed ending?
 
   private val yearGroup = 1

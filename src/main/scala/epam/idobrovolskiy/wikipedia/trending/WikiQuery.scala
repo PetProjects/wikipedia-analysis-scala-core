@@ -11,9 +11,16 @@ object WikiQuery extends App {
     case Some(args: TokensForPeriodQueryArgs) => {
       if(args.debug) println(args)
 
-      val queryRes = WikiQueryApi.queryTokensForPeriod(args)
+      val queryRes: Option[Seq[String]] = args.queryVersion match {
+        case 1 => Some(WikiQueryApi.queryTokensForPeriodV1(args))
+        case 2 => Some(WikiQueryApi.queryTokensForPeriodV2(args))
 
-      println(s"QUERY RESULTS:\n${queryRes.mkString("\n")}")
+        case -1 /*latest*/ => Some(WikiQueryApi.queryTokensForPeriodV2(args))
+        case _=> { println(s"Unsupported query version specified: ${args.queryVersion}") ; None }
+      }
+
+      if(queryRes.isDefined)
+        println(s"QUERY RESULTS:\n${queryRes.get.mkString("\n")}")
     }
 
     case Some(_: WikiQueryArgs) =>
