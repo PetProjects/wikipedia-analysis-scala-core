@@ -1,2 +1,4 @@
 #!/bin/sh
-/usr/hdp/current/spark2-client/bin/spark-submit  --class epam.idobrovolskiy.wikipedia.trending.WikiQuery --master local[6] --executor-memory 3g wikipedia-analysis-0.1.jar --debug --tokens
+date; /usr/hdp/current/spark2-client/bin/spark-submit  --class epam.idobrovolskiy.wikipedia.trending.WikiQuery --master local[12] --executor-memory 3g wikipedia-trending_2.11-0.2.0.jar --debug --tokens --version=1 > outq.txt; date; cat outq.txt
+date; /usr/hdp/current/spark2-client/bin/spark-submit  --class epam.idobrovolskiy.wikipedia.trending.WikiQuery --master local[12] --executor-memory 3g wikipedia-trending_2.11-0.2.0.jar --debug --tokens --version=2 > outq.txt; date; cat outq.txt
+date; /usr/hdp/current/spark2-client/bin/spark-submit  --class epam.idobrovolskiy.wikipedia.trending.WikiQuery --master local[12] --executor-memory 3g wikipedia-trending_2.11-0.2.0.jar --debug --tokens --version=2 50bc-50ad > outq.txt; date; cat outq.txt

@@ -7,11 +7,11 @@ import epam.idobrovolskiy.wikipedia.trending.document.WikiCitation
   */
 @deprecated("Use BasicStackedDatesExtractor instead. Configure it flexibly with adding proper set of mixin-s (epam.idobrovolskiy.wikipedia.trending.time.extractor.stack.*Extrator traits)", "Since 09.08.2017")
 class PlainDatesExtractor extends DatesExtractor{
-  override def extract(s: String): Set[WikiDate] = extractInternalAdHoc(s).collect {
+  override def extractDates(s: String): Set[WikiDate] = extractInternalAdHoc(s).collect {
     case (wikiDate, _, _) => wikiDate
   }
 
-  override def extractWithCitations(id: Int, s: String): Set[(WikiDate, WikiCitation)] =
+  override def extractDatesWithCitations(id: Int, s: String): Set[(WikiDate, WikiCitation)] =
     extractInternalAdHoc(s).collect {
       case (wikiDate, startInd, endInd) => (wikiDate,
         WikiCitation(id, startInd, endInd,

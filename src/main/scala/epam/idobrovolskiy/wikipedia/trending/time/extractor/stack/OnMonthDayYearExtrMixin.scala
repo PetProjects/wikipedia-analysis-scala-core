@@ -12,7 +12,7 @@ trait OnMonthDayYearExtrMixin extends InMonthYearExtrMixin with ExtractionLogger
   private val monthGroup = 1
   private val dayGroup = 2
 
-  def extractInMonthDayYearDates(id: Int, s: String): Iterator[WikiDateExtraction] =
+  def extractOnMonthDayYearDates(id: Int, s: String): Iterator[DateExtraction] =
     for {cMatch <- (re findAllIn s).matchData} yield
       tryExtract(cMatch.start(yearGroup), cMatch) {
         WikiDate.AD(
@@ -21,6 +21,12 @@ trait OnMonthDayYearExtrMixin extends InMonthYearExtrMixin with ExtractionLogger
           cMatch.group(dayGroup).toInt)
       }
 
-  abstract override protected def appendDates(id: Int, s: String, it: Iterator[WikiDateExtraction]) =
-    super.appendDates(id, s, it ++ extractInMonthDayYearDates(id, s))
+  def extractOnMonthDayYearRanges(id: Int, s: String): Iterator[RangeExtraction] =
+    extractOnMonthDayYearDates(id, s).map(interpretDateAsRange(_))
+
+  abstract override protected def appendDates(id: Int, s: String, it: Iterator[DateExtraction]) =
+    super.appendDates(id, s, it ++ extractOnMonthDayYearDates(id, s))
+
+  abstract override protected def appendRanges(id: Int, s: String, it: Iterator[RangeExtraction]) =
+    super.appendRanges(id, s, it ++ extractOnMonthDayYearRanges(id, s))
 }

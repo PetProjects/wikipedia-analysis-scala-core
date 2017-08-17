@@ -72,7 +72,7 @@ object WikiDocumentIndexer {
     import df.sqlContext.implicits._
 
     val extractDatesAndCitations = udf { (id: Int, body: String) =>
-      datesExtractor.extractWithCitations(id, body)
+      datesExtractor.extractDatesWithCitations(id, body)
         .map { case (date, citation) => s"$date => $citation" }
         .toSeq
     }
@@ -85,7 +85,7 @@ object WikiDocumentIndexer {
     import df.sqlContext.implicits._
 
     val extractDates = udf { (body: String) =>
-      datesExtractor.extract(body)
+      datesExtractor.extractDates(body)
         .map(_.serialize)
         .toSeq
     }
@@ -204,7 +204,7 @@ object WikiDocumentIndexer {
     )
   )
 
-  case class DateRangeStruct(from: Long, to: Long)
+  case class DateRangeStruct(since: Long, until: Long)
   case class DatesStruct(min_date: Option[Long], max_date: Option[Long], date_range: Seq[DateRangeStruct])
 
   private def extractDrDocs(df: DataFrame): DataFrame = {
@@ -215,15 +215,13 @@ object WikiDocumentIndexer {
     }
 
     val extractDates = udf { (body: String) =>
-      val dates = datesExtractor.extract(body)
-      val serDates = dates.map(_.serialize)
+      val dateRanges = datesExtractor.extractRanges(body)
+      val serDates = dateRanges.flatMap(dr => Seq(dr.since.serialize, dr.until.serialize))
 
       DatesStruct(
         if (serDates.isEmpty) None else Some(serDates.min),
         if (serDates.isEmpty) None else Some(serDates.max),
-        serDates.map(dSer => DateRangeStruct(dSer, dSer)).toSeq //TODO: rework into expanding real ranges,
-        // e.g. WikiDate(None,None,Some(1970),None, None, Some(true)) =>
-        //    WikiDate(Some(1),Some(Month.January),Some(1970),None, None, Some(true)) .. WikiDate(Some(31),Some(Month.December),Some(1970),None, None, Some(true))
+        dateRanges.map(dr => DateRangeStruct(dr.since.serialize, dr.until.serialize)).toSeq
       )
     }
 

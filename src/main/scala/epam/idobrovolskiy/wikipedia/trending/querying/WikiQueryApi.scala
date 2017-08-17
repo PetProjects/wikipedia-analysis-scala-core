@@ -1,10 +1,11 @@
 package epam.idobrovolskiy.wikipedia.trending.querying
 
+import epam.idobrovolskiy.wikipedia.trending.DefaultDrDocIndexFileName
 import epam.idobrovolskiy.wikipedia.trending.cli.TokensForPeriodQueryArgs
 import epam.idobrovolskiy.wikipedia.trending.indexing.WikiDocumentIndexer
 import epam.idobrovolskiy.wikipedia.trending.time.WikiDate
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.{min, max, explode, sum}
+import org.apache.spark.sql.functions.{explode, max, min, sum, first}
 
 /**
   * Created by Igor_Dobrovolskiy on 02.08.2017.
@@ -78,6 +79,13 @@ object WikiQueryApi {
     import df.sqlContext.implicits._
 
     df.filter($"dates.min_date" <= untilSer && $"dates.max_date" >= sinceSer)
+      .select('wiki_id, 'top_tokens, explode($"dates.date_range") as "range")
+      .filter($"range.since" <= untilSer && $"range.until" >= sinceSer)
+      .drop('range)
+      .groupBy('wiki_id)
+      .agg(
+        //first('wiki_id) as "wiki_id", //it is already included as group key
+        first('top_tokens) as "top_tokens")
   }
 
   private def queryTokensForPeriod(args: TokensForPeriodQueryArgs, getDocs: (WikiDate, WikiDate, Boolean) => DataFrame): Seq[String] = {
@@ -85,6 +93,7 @@ object WikiQueryApi {
 
     if (args.debug) {
       df.printSchema()
+      df.show(20, false)
       println(s"Total distinct documents (by doc index) which matched query: ${df.count}")
     }
 

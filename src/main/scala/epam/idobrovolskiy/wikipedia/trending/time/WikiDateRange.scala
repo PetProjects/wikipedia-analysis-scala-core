@@ -8,5 +8,8 @@ case class WikiDateRange
 (
   since: WikiDate,
   until: WikiDate
-)
+) extends AnyRef with Serializable
 
+object WikiDateRange {
+  val NoDateRange = WikiDateRange(WikiDate.NoDate, WikiDate.NoDate)
+}

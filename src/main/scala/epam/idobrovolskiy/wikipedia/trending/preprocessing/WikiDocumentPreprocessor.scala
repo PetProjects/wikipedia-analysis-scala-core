@@ -17,7 +17,7 @@ object WikiDocumentPreprocessor {
 
 
   def preprocess(args: WikiPrepArgs, destFilename: String,
-                 docProducer: WikiDocumentProducer) =
+                 docProducer: WikiDocumentProducer): Unit =
   {
     //  val s = "doc with max body=[" + docProducer.getDocuments(path)
     //  //    .collect { case x: WikiDocumentWithBasicStats => x }.maxBy(_.body.BodyLinesCount) + "]"

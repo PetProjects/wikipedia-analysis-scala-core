@@ -6,13 +6,17 @@ package epam.idobrovolskiy.wikipedia.trending.tokenizer
 class StopWordsTokenizer extends Tokenizer {
 
   override def splitWords(s: String): Seq[String] =
-    s.toLowerCase.split("""[\s,\.!?:\<\>=/'"\(\)\-–""" + "\u0096\u0097" + """]+|(%[a-z\d]{2})""").filter(_.length > 0) //TODO: implement better tags handling
+  //TODO: implement better tags handling
+    s.toLowerCase.split("""[\s,\.!?:\<\>=/'"\(\)\-–""" + "\u0096\u0097" + """]+|(%[a-z\d]{2})""")
+      .filter(StopWordsTokenizer.basicLengthFilter)
 
   override def filterWords(w: String): Boolean =
     ! StopWordsTokenizer.stopWords.contains(w)
 }
 
 object StopWordsTokenizer {
+  def basicLengthFilter(s: String): Boolean = s.length >= 2 //we are not interested in single characters search atm ... should it be restricted to >2 ?
+
   lazy private val stopWords: Set[String] = //TODO: Rework into file/resource based dictionary
     Set("a", "an", "the", "of", "to", "at", "for",
       "in", "was", "were", "as", "by", "and", "with", "over",
@@ -26,7 +30,9 @@ object StopWordsTokenizer {
       "each", "some", "more", "most", "less", "least", "best", "better", "worst", "worse",
       "new", //does it makes sense?
       "wikt", //because of '<a href="wikt%3Aplausible%23Adjective">'
+      "ad", "bc", "ce", "bce", "b", "c", "a", "d", "e", //for: B.C., A.D., C.E., B.C.E.
       "la", "de", "s",
       "u", "q", //what are these?
-      "href", "http", "https", "http%3a", "https%3a") //TODO: remove when better tags handling is implemented
+      "href", "http", "https", "http%3a", "https%3a" //TODO: remove when better tags handling is implemented
+    ).filter(basicLengthFilter)
 }

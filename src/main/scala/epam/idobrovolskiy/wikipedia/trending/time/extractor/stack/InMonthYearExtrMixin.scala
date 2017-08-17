@@ -1,6 +1,5 @@
 package epam.idobrovolskiy.wikipedia.trending.time.extractor.stack
 
-import java.text.DateFormatSymbols
 import java.time.Month
 import java.time.format.TextStyle
 import java.util.Locale
@@ -21,13 +20,19 @@ trait InMonthYearExtrMixin extends BasicStackedDatesExtractor {
   private val yearGroup = 2
   private val monthGroup = 1
 
-  def extractInMonthYearDates(id: Int, s: String): Iterator[WikiDateExtraction] =
+  def extractInMonthYearDates(id: Int, s: String): Iterator[DateExtraction] =
     for {cMatch <- (re findAllIn s).matchData} yield
-      WikiDateExtraction(
+      DateExtraction(
         WikiDate.AD(cMatch.group(yearGroup).toInt, TextToMonths(cMatch.group(monthGroup))),
         cMatch.start(yearGroup),
         cMatch)
 
-  abstract override protected def appendDates(id: Int, s: String, it: Iterator[WikiDateExtraction]) =
+  def extractInMonthYearRanges(id: Int, s: String): Iterator[RangeExtraction] =
+    extractInMonthYearDates(id, s).map(interpretDateAsRange(_))
+
+  abstract override protected def appendDates(id: Int, s: String, it: Iterator[DateExtraction]) =
     super.appendDates(id, s, it ++ extractInMonthYearDates(id, s))
+
+  abstract override protected def appendRanges(id: Int, s: String, it: Iterator[RangeExtraction]) =
+    super.appendRanges(id, s, it ++ extractInMonthYearRanges(id, s))
 }

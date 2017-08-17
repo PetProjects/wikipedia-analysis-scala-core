@@ -54,7 +54,7 @@ class AttardiWikiDocumentProducer(val parsingStrategy: AttardiWikiDocumentParsin
     if (!fileLines.hasNext)
       Stream.empty
     else
-      parseDocument(fileLines) #:: getDocuments(fileLines)
+      parseDocument(fileLines) #:: getDocuments(fileLines) //TODO: Use #::: instead?!
 
   /**
     * Main entry point for parsing single wiki document.

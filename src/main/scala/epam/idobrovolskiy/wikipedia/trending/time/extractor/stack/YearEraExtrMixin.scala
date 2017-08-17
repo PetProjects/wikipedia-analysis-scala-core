@@ -13,7 +13,7 @@ trait YearEraExtrMixin extends BasicStackedDatesExtractor with BasicEraExtrMixin
   private val yearGroup = 1
   private val eraGroup = 2
 
-  def extractInYearEraDates(id: Int, s: String): Iterator[WikiDateExtraction] = {
+  def extractInYearEraDates(id: Int, s: String): Iterator[DateExtraction] = {
     for {
       cMatch <- (re findAllIn s).matchData
       if cMatch.group(eraGroup) != null
@@ -24,6 +24,12 @@ trait YearEraExtrMixin extends BasicStackedDatesExtractor with BasicEraExtrMixin
     }
   }
 
-  abstract override protected def appendDates(id: Int, s: String, it: Iterator[WikiDateExtraction]) =
+  def extractInYearEraRanges(id: Int, s: String): Iterator[RangeExtraction] =
+    extractInYearEraDates(id, s).map(interpretDateAsRange(_))
+
+  abstract override protected def appendDates(id: Int, s: String, it: Iterator[DateExtraction]) =
     super.appendDates(id, s, it ++ extractInYearEraDates(id, s))
+
+  abstract override protected def appendRanges(id: Int, s: String, it: Iterator[RangeExtraction]) =
+    super.appendRanges(id, s, it ++ extractInYearEraRanges(id, s))
 }
