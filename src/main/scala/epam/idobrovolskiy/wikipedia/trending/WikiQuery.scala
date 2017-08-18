@@ -1,14 +1,14 @@
 package epam.idobrovolskiy.wikipedia.trending
 
 import epam.idobrovolskiy.wikipedia.trending.cli.{TokensForPeriodQueryArgs, WikiQueryArgs, WikiQueryArgsParser}
-import epam.idobrovolskiy.wikipedia.trending.querying.WikiQueryApi
+import epam.idobrovolskiy.wikipedia.trending.querying.{WikiQueryApi, WikiHiveQueryApi}
 
 /**
   * Created by Igor_Dobrovolskiy on 01.08.2017.
   */
 object WikiQuery extends App {
   WikiQueryArgsParser.parse(args) match {
-    case Some(args: TokensForPeriodQueryArgs) => {
+    case Some(args: TokensForPeriodQueryArgs) if !args.useHive => {
       if(args.debug) println(args)
 
       val queryRes: Option[Seq[String]] = args.queryVersion match {
@@ -21,6 +21,14 @@ object WikiQuery extends App {
 
       if(queryRes.isDefined)
         println(s"QUERY RESULTS:\n${queryRes.get.mkString("\n")}")
+    }
+
+    case Some(args: TokensForPeriodQueryArgs) if args.useHive => {
+      if(args.debug) println(args)
+
+      val queryRes: Seq[String] = WikiHiveQueryApi.queryTokensForPeriod(spark, args)
+
+      println(s"QUERY RESULTS:\n${queryRes.mkString("\n")}")
     }
 
     case Some(_: WikiQueryArgs) =>

@@ -1,6 +1,6 @@
 name := "wikipedia-trending"
 
-version := "0.2.0"
+version := "0.2.1"
 
 scalaVersion := "2.11.8"
 
@@ -18,7 +18,6 @@ libraryDependencies ++= {
   //2.1.0.2.6.0.3-8
   val sparkVer = "2.1.0"
   Seq(
-    //"org.apache.spark" %% "spark-core" % sparkVer % "provided" withSources()
     "org.apache.spark" % "spark-core_2.11" % sparkVer % "provided" withSources(),
     "org.apache.spark" % "spark-sql_2.11" % sparkVer % "provided" withSources(),
     "org.apache.spark" % "spark-hive_2.11" % sparkVer % "provided" withSources()

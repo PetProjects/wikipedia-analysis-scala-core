@@ -1,16 +1,15 @@
 package epam.idobrovolskiy.wikipedia.trending.querying
 
-import epam.idobrovolskiy.wikipedia.trending.DefaultDrDocIndexFileName
 import epam.idobrovolskiy.wikipedia.trending.cli.TokensForPeriodQueryArgs
 import epam.idobrovolskiy.wikipedia.trending.indexing.WikiDocumentIndexer
 import epam.idobrovolskiy.wikipedia.trending.time.WikiDate
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.sql.functions.{explode, max, min, sum, first}
+import org.apache.spark.sql.functions._
 
 /**
   * Created by Igor_Dobrovolskiy on 02.08.2017.
   */
-object WikiQueryApi {
+object WikiQueryApi extends WikiBaseQuery {
 
   def queryTokensForPeriodV1(args: TokensForPeriodQueryArgs): Seq[String] =
     queryTokensForPeriod(args, getDocsForPeriodV1)
@@ -108,11 +107,6 @@ object WikiQueryApi {
       tokenDf.show(30)
     }
 
-    val tokens = tokenDf
-      .take(args.topN)
-      .map(r => s"  [${r(1)}]\t\t${r(0)}")
-      .toList
-
-    tokens
+    formatQueryOutput(tokenDf.take(args.topN))
   }
 }

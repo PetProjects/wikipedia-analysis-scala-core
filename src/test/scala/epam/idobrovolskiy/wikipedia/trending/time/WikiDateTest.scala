@@ -56,8 +56,10 @@ class WikiDateTest extends FunSuite {
   test("<entrypoint for fast runtime runs/checks (not a test)>") {
     val date = WikiDate.deserialize(2233824) // 2129364 //2567655
 
-    println(date)
-    println(WikiDate.NoDate.toClosestTraditionalDate, WikiDate.AD(1).toClosestTraditionalDate, WikiDate.BC(1, Month.DECEMBER, 31).toClosestTraditionalDate)
-    println(WikiDate.BC(1, Month.DECEMBER, 31).serialize, WikiDate.NoDate.serialize, WikiDate.AD(1).serialize)
+//    println(date)
+//    println(WikiDate.NoDate.toClosestTraditionalDate, WikiDate.AD(1).toClosestTraditionalDate, WikiDate.BC(1, Month.DECEMBER, 31).toClosestTraditionalDate)
+//    println(WikiDate.BC(1, Month.DECEMBER, 31).serialize, WikiDate.NoDate.serialize, WikiDate.AD(1).serialize)
+
+    println(WikiDate.BC(50).serialize, WikiDate.AD(50).serialize)
   }
 }

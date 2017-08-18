@@ -26,7 +26,7 @@ class WikiQueryArgsParserTest extends FlatSpec with Matchers {
   }
 
   val tokensDebugExpected =
-    Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = true))
+    Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = true, useHive = false))
 
   "CLI with '--tokens' and '--debug' option" should "be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now and debug flag ON" in {
     val args = Array("--tokens", "--debug")
