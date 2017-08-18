@@ -1,0 +1,31 @@
+create database if not exists wikitrending
+    comment 'i.dobrovolskiy hive homework 1 db'
+    location '/hdfs/user/idobrovolskiy/wikipedia-trending/hivedb'
+    with dbproperties ('creator'='i.dobrovolskiy','date'='16.08.2017');
+	
+use wikitrending;
+
+drop table data_range;
+
+CREATE EXTERNAL TABLE IF NOT EXISTS data_range (
+  wiki_id int,
+  wiki_title string,
+  wiki_url string,
+  dates struct<min_date: bigint, max_date: bigint, date_range: array<struct<since: bigint, until: bigint>>>,
+  top_tokens map<string, int>
+)
+STORED AS PARQUET
+LOCATION '/user/idobrovolskiy/wikipedia-trending/wiki_index_date_ranges';
+
+select
+    tt.token, sum(tt.tcount) as total_tcount
+from (
+    select t.top_tokens
+    from data_range t
+    lateral view inline(t.dates.date_range) drs as since, until
+    where t.dates.min_date <= -701265 and t.dates.max_date >= -737790 and drs.since <=-701265 and drs.until >= -737790
+) t
+lateral view explode(t.top_tokens) tt as token, tcount
+group by tt.token
+order by total_tcount desc
+limit 10;
