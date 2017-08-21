@@ -22,11 +22,11 @@ class WikiQueryArgsParserTest extends FlatSpec with Matchers {
   "CLI with single '--tokens' option" should "be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now" in {
     val args = Array("--tokens")
 
-    WikiQueryArgsParser.parse(args) shouldBe Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now))
+    WikiQueryArgsParser.parse(args) shouldBe Some(TokensForPeriodQueryArgs(WikiQueryArgs.DefaultArgs)())
   }
 
   val tokensDebugExpected =
-    Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = true, useHive = false))
+    Some(TokensForPeriodQueryArgs(WikiQueryArgs.DefaultArgs)(d = true))
 
   "CLI with '--tokens' and '--debug' option" should "be parsed as TokensForPeriodQueryArgs with timeframe from Genesis till Now and debug flag ON" in {
     val args = Array("--tokens", "--debug")
@@ -43,18 +43,18 @@ class WikiQueryArgsParserTest extends FlatSpec with Matchers {
   "CLI with '--tokens' and '--version=1' option" should "be parsed properly" in {
     val args = Array("--tokens","--version=1")
 
-    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = false, queryVersion = 1))
+    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiQueryArgs.DefaultArgs)(qv = 1))
   }
 
   it should "work the same when options are placed in reversed order" in {
     val args = Array("--version=1", "--tokens")
 
-    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = false, queryVersion = 1))
+    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiQueryArgs.DefaultArgs)(qv = 1))
   }
 
   "CLI with '--tokens' and '--version=2' option" should "be parsed properly" in {
     val args = Array("--tokens","--version=2")
 
-    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiDate.MinDate, WikiDate.Now, debug = false, queryVersion = 2))
+    WikiQueryArgsParser.parse(args) shouldEqual Some(TokensForPeriodQueryArgs(WikiQueryArgs.DefaultArgs)(qv = 2))
   }
 }

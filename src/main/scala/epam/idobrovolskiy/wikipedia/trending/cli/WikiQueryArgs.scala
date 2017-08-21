@@ -23,9 +23,11 @@ trait WikiQueryArgs {
   def canEqual(other: Any): Boolean = other.isInstanceOf[WikiQueryArgs]
 }
 
-object WikiQueryArgs { //Rework all val-s to var-s?!
-
-  def apply(qt: WikiQueryType.Value, d: Boolean = false, qv: Int = -1 /*latest*/ , uh: Boolean = false) =
+object WikiQueryArgs {
+  def apply(args: WikiQueryArgs)(qt: WikiQueryType.Value = args.queryType,
+                                 d: Boolean = args.debug,
+                                 qv: Int = args.queryVersion,
+                                 uh: Boolean = args.useHive): WikiQueryArgs =
     new WikiQueryArgs {
       override val queryType: WikiQueryType.Value = qt
       override val debug: Boolean = d
@@ -33,35 +35,5 @@ object WikiQueryArgs { //Rework all val-s to var-s?!
       override val useHive: Boolean = uh
     }
 
-  def qType(qt: WikiQueryType.Value, args: WikiQueryArgs) =
-    new WikiQueryArgs {
-      override val queryType: WikiQueryType.Value = qt
-      override val debug: Boolean = args.debug
-      override val queryVersion: Int = args.queryVersion
-      override val useHive: Boolean = args.useHive
-    }
-
-  def debug(d: Boolean = true, args: WikiQueryArgs) =
-    new WikiQueryArgs {
-      override val queryType: WikiQueryType.Value = args.queryType
-      override val debug: Boolean = d
-      override val queryVersion: Int = args.queryVersion
-      override val useHive: Boolean = args.useHive
-    }
-
-  def version(qv: Int, args: WikiQueryArgs) =
-    new WikiQueryArgs {
-      override val queryType: WikiQueryType.Value = args.queryType
-      override val debug: Boolean = args.debug
-      override val queryVersion: Int = qv
-      override val useHive: Boolean = args.useHive
-    }
-
-  def hive(uh: Boolean = true, args: WikiQueryArgs) =
-    new WikiQueryArgs {
-      override val queryType: WikiQueryType.Value = args.queryType
-      override val debug: Boolean = args.debug
-      override val queryVersion: Int = args.queryVersion
-      override val useHive: Boolean = uh
-    }
+  val DefaultArgs = apply(null)(null, false, -1, false) //default args are treated invalid for WikiQuery, since query type must be specified explicitly (not null)
 }

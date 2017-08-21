@@ -45,22 +45,15 @@ object WikiQueryArgsParser {
         |       and just the simplest queries are supported atm.
       """.stripMargin
 
-
-  def buildTokensArgs(defArgs: WikiQueryArgs, since: WikiDate = WikiDate.MinDate, until: WikiDate = WikiDate.Now): WikiQueryArgs =
-    TokensForPeriodQueryArgs(since, until,
-      debug = defArgs.debug,
-      queryVersion = defArgs.queryVersion,
-      useHive = defArgs.useHive)
-
   private def parseTokensArgs(argList: List[String], defArgs: WikiQueryArgs): Option[WikiQueryArgs] =
     argList match {
       case Nil => Some(defArgs)
       case "--tokens" :: tail => //setting up default time frame at first, then it will be overriden by specific dates, once specified.
-        parseTokensArgs(tail, buildTokensArgs(defArgs))
+        parseTokensArgs(tail, TokensForPeriodQueryArgs(defArgs)())
       case dates :: tail if !dates.startsWith("--") => { //anything, not an option, must be date or date range
         WikiDateRangeParser.parse(dates) match {
           case Some(range) =>
-            parseTokensArgs(tail, buildTokensArgs(defArgs, range.since, range.until))
+            parseTokensArgs(tail, TokensForPeriodQueryArgs(defArgs)(since= range.since, until = range.until))
 
           case None => {
             //            println(s"\"${dates}\" is invalid date/date range.")
@@ -80,65 +73,59 @@ object WikiQueryArgsParser {
 
   private def duplicateQueryType: WikiQueryArgs = {
     println("Multiple query types in single query are not allowed.")
-    InvalidArgs
+    WikiQueryArgs.DefaultArgs
   }
 
-  private def argsForQueryType(tail: List[String], defArgs: WikiQueryArgs, qType: WikiQueryType.Value) =
-    if (defArgs.queryType == null || defArgs.queryType == qType)
-      parseCommonOptions(tail, WikiQueryArgs.qType(qType, defArgs))
+  private def modifyQueryTypeAndParseTail(tail: List[String], args: WikiQueryArgs, qType: WikiQueryType.Value) =
+    if (args.queryType == null || args.queryType == qType)
+      parseCommonOptions(tail, WikiQueryArgs(args)(qt = qType))
     else
       duplicateQueryType
 
-  private def argsForDebug(tail: List[String], defArgs: WikiQueryArgs, debugFlag: Boolean = true) =
-    parseCommonOptions(tail, WikiQueryArgs.debug(debugFlag, defArgs))
+  private def modifyDebugAndParseTail(tail: List[String], args: WikiQueryArgs, debugFlag: Boolean = true) =
+    parseCommonOptions(tail, WikiQueryArgs(args)(d = debugFlag))
 
-  private def argsForVersion(tail: List[String], defArgs: WikiQueryArgs, versionOpt: String) = {
+  private def modifyVersionAndParseTail(tail: List[String], args: WikiQueryArgs, versionOpt: String) = {
     try {
-      val version = versionOpt.split('=')(1).toInt
-
-      parseCommonOptions(tail, WikiQueryArgs.version(version, defArgs))
+      parseCommonOptions(tail, WikiQueryArgs(args)(qv = versionOpt.split('=')(1).toInt))
     }
     catch {
       case ex: Exception => {
         println(s"Invalid query version specified: $versionOpt")
-        InvalidArgs
+        WikiQueryArgs.DefaultArgs
       }
     }
   }
 
-  private def argsForHive(tail: List[String], defArgs: WikiQueryArgs, useHive: Boolean = true) =
-    parseCommonOptions(tail, WikiQueryArgs.hive(useHive, defArgs))
+  private def modifyUseHiveAndParseTail(tail: List[String], args: WikiQueryArgs, useHive: Boolean = true) =
+    parseCommonOptions(tail, WikiQueryArgs(args)(uh = useHive))
 
   private def parseCommonOptions(argList: List[String], defArgs: WikiQueryArgs): WikiQueryArgs = {
     argList match {
       case Nil => defArgs
 
-      case "--tokens" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.TopTokensForPeriod)
+      case "--tokens" :: tail => modifyQueryTypeAndParseTail(tail, defArgs, WikiQueryType.TopTokensForPeriod)
 
-      case "--articles" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.TopDocumentsForPeriod)
+      case "--articles" :: tail => modifyQueryTypeAndParseTail(tail, defArgs, WikiQueryType.TopDocumentsForPeriod)
 
-      case "--distribution" :: tail => argsForQueryType(tail, defArgs, WikiQueryType.PeriodDistributionForToken)
+      case "--distribution" :: tail => modifyQueryTypeAndParseTail(tail, defArgs, WikiQueryType.PeriodDistributionForToken)
 
-      case "--debug" :: tail => argsForDebug(tail, defArgs)
+      case "--debug" :: tail => modifyDebugAndParseTail(tail, defArgs)
 
-      case "--help" :: _ => InvalidArgs
+      case "--help" :: _ => WikiQueryArgs.DefaultArgs
 
-      case "--hive" :: tail => argsForHive(tail, defArgs)
+      case "--hive" :: tail => modifyUseHiveAndParseTail(tail, defArgs)
 
-      case opt :: tail if opt.startsWith("--version=") => argsForVersion(tail, defArgs, opt)
+      case opt :: tail if opt.startsWith("--version=") => modifyVersionAndParseTail(tail, defArgs, opt)
 
       case _ :: tail => //not a common option, leaving it for specific parser
         parseCommonOptions(tail, defArgs)
     }
   }
 
-  val InvalidArgs = WikiQueryArgs(null)
-
   def parse(args: Array[String]): Option[WikiQueryArgs] = {
     val argList = args.toList
-    val commonOpts = parseCommonOptions(argList,
-      InvalidArgs //no args specified is treated unexpected for WikiQuery, i.e. at least query type must be specified explicitly
-    )
+    val commonOpts = parseCommonOptions(argList, WikiQueryArgs.DefaultArgs)
 
     val cOpts = commonOpts.queryType match {
       case WikiQueryType.TopTokensForPeriod => parseTokensArgs(argList, commonOpts)
@@ -148,7 +135,8 @@ object WikiQueryArgsParser {
       case _ => None
     }
 
-    cOpts match { //print usage if failed
+    cOpts match {
+      //print usage if failed
       case None => {
         printUsage();
         None
