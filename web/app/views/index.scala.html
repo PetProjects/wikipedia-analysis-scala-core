@@ -1,0 +1,23 @@
+@()
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Wikipedia history dates REST API</title>
+  </head>
+
+  <body>
+    <h1>Wikipedia history dates API</h1>
+
+    <p>
+      Available REST API history dates queries.
+    </p>
+
+    <ul>
+      <li><a href="/v1/wikiq/tokens/50bc-50ad">/v1/wikiq/tokens/{date-range, e.g. "50bc-50ad"}</a><pre>Queries top N (default count is 10) tokens for the specified dates period</pre></li>
+      <li><a href="/v1/wikiq/articles/50bc-50ad">/v1/wikiq/articles/{date-range, e.g. "50bc-50ad"}</a><b><pre>NOT IMPLEMENTED</pre></b></li>
+      <li><a href="/v1/wikiq/distribution/rome">/v1/wikiq/distribution/{token, e.g. "rome"}</a><b><pre>NOT IMPLEMENTED</pre></b></li>
+    </ul>
+  </body>
+</html>
