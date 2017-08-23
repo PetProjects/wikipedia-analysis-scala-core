@@ -37,6 +37,6 @@ object TokensForPeriodQueryArgs {
                                  uh: Boolean = args.useHive,
                                  tn: Int = 10,
                                  since: WikiDate = WikiDate.MinDate,
-                                 until: WikiDate = WikiDate.Now): WikiQueryArgs =
+                                 until: WikiDate = WikiDate.Now) : TokensForPeriodQueryArgs =
     TokensForPeriodQueryArgs(since, until, topN = tn, debug = d, queryVersion = qv, useHive = uh)
 }

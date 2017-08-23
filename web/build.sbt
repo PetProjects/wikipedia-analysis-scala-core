@@ -5,7 +5,7 @@ lazy val GatlingTest = config("gatling") extend Test
 // This must be set to 2.11.11 because Gatling does not run on 2.12.2
 scalaVersion in ThisBuild := "2.11.11"
 
-unmanagedJars in Compile += file("../target/scala-2.11/wikipedia-trending_2.11-0.2.1.jar")
+unmanagedJars in Compile += file("../target/scala-2.11/wikipedia-trending_2.11-0.2.2.jar")
 
 libraryDependencies ++= {
   //2.1.0.2.6.0.3-8

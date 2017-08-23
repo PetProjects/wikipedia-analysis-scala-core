@@ -7,14 +7,12 @@ import org.apache.spark.sql.SparkSession
   * Created by Igor_Dobrovolskiy on 18.08.2017.
   */
 object WikiHiveQueryApi extends WikiBaseQuery {
-  def queryTokensForPeriod(sparkSession: SparkSession, args: TokensForPeriodQueryArgs): Seq[String] = {
 
-    import sparkSession.sql
-
+  def getHiveQueryFor(args: TokensForPeriodQueryArgs): String = {
     val sinceSer = args.since.serialize
     val untilSer = args.until.serialize
 
-    val query = """ select
+    """ select
       |    tt.token, sum(tt.tcount) as total_tcount
       |from (
       |    select t.top_tokens
@@ -26,7 +24,14 @@ object WikiHiveQueryApi extends WikiBaseQuery {
       |group by tt.token
       |order by total_tcount desc
       |limit %d
-      |""" .format(untilSer, sinceSer, untilSer, sinceSer, args.topN).stripMargin
+      |""".format(untilSer, sinceSer, untilSer, sinceSer, args.topN).stripMargin
+  }
+
+  def queryTokensForPeriod(sparkSession: SparkSession, args: TokensForPeriodQueryArgs): Seq[String] = {
+
+    import sparkSession.sql
+
+    val query = getHiveQueryFor(args)
 
     formatQueryOutput(sql(query).collect())
   }
