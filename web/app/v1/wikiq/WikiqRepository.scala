@@ -34,10 +34,15 @@ class WikiqRepositoryImpl @Inject()()(implicit ec: WikiqExecutionContext) extend
 
   private val logger = Logger(this.getClass)
 
+  private val hivePerfOpts = "--hiveconf hive.tez.container.size=1024"
+  private val hiveJdbcOpts = "-u jdbc:hive2://localhost:10000/wikitrending"
+  private val hiveUserName = "hive"
+  private val hiveUserPassword = "hive"
+  private val beelineOutputFormatOpts = "--showHeader=false --silent=true --verbose=false"
+
   //  private def cmdLine(query: String) =
   //    s"beeline --hiveconf hive.tez.container.size=1024 -u jdbc:hive2://localhost:10000/wikitrending --showHeader=false --silent=true --verbose=false -n hive -p hive -e '${query.replace('\n', ' ')}'"
-  private def cmdLine(fname: String) =
-  s"beeline --hiveconf hive.tez.container.size=1024 -u jdbc:hive2://localhost:10000/wikitrending --showHeader=false --silent=true --verbose=false -n hive -p hive -f $fname"
+  private def cmdLine(fname: String) = s"beeline $hivePerfOpts $hiveJdbcOpts $beelineOutputFormatOpts -n $hiveUserName -p $hiveUserPassword -f $fname"
 
   def parseBeelineOutput(beelineOutput: List[String]): Iterable[WikiqData] =
     beelineOutput.map(_.split("\\|").filter(_.length > 0).toList) collect {

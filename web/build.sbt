@@ -34,14 +34,26 @@ lazy val root = (project in file("."))
   .configs(GatlingTest)
   .settings(inConfig(GatlingTest)(Defaults.testSettings): _*)
   .settings(
-    name := """play-scala-rest-api-example""",
+    name := """wikipedia-trending-rest-api""",
     scalaSource in GatlingTest := baseDirectory.value / "/gatling/simulation"
   )
 
-// Documentation for this project:
-//    sbt "project docs" "~ paradox"
-//    open docs/target/paradox/site/index.html
-lazy val docs = (project in file("docs")).enablePlugins(ParadoxPlugin).
-  settings(
-    paradoxProperties += ("download_url" -> "https://example.lightbend.com/v1/download/play-rest-api")
-  )
+//// Documentation for this project:
+////    sbt "project docs" "~ paradox"
+////    open docs/target/paradox/site/index.html
+//lazy val docs = (project in file("docs")).enablePlugins(ParadoxPlugin).
+//  settings(
+//    paradoxProperties += ("download_url" -> "https://example.lightbend.com/v1/download/play-rest-api")
+//  )
+
+lazy val npmBuildTask = taskKey[Unit]("Execute the npm build command to build the ui")
+
+npmBuildTask := {
+  "\"C:\\Program Files\\nodejs\\npm.cmd\" --prefix public/ install public/" !
+}
+
+compile := ((compile in Compile) dependsOn npmBuildTask).value
+
+//npmExec := "\"C:\\Program Files\\nodejs\\npm.cmd\""
+//npmWorkingDir := "public/"
+//npmCompileCommands := "install"
