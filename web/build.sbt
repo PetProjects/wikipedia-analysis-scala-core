@@ -49,11 +49,8 @@ lazy val root = (project in file("."))
 lazy val npmBuildTask = taskKey[Unit]("Execute the npm build command to build the ui")
 
 npmBuildTask := {
-  "\"C:\\Program Files\\nodejs\\npm.cmd\" --prefix public/ install public/" !
+  "npm --prefix public/ install public/" !
 }
 
 compile := ((compile in Compile) dependsOn npmBuildTask).value
 
-//npmExec := "\"C:\\Program Files\\nodejs\\npm.cmd\""
-//npmWorkingDir := "public/"
-//npmCompileCommands := "install"

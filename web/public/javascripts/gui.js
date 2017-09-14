@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    $("#queryResults").hide();
+    $(".tabDiv").hide();
     $(".input-group").hide();
+    $("#homeDiv").show();
 
     $("#queryBtn").on("click", function(){
         var $this = $(this);
@@ -13,25 +14,37 @@ $(document).ready(function(){
             wikiq.queryTopTokens(queryStr,
                 function(tokens){
                     if(tokens){
-                        $("#queryResults").hide();
-                        $("#queryResultsUl").empty();
+                        $("#topTokensDiv").hide();
+                        $("#queryResultsTable > tbody").empty();
+
                         for(var tKey in tokens) {
-                            $( "<li>" + JSON.stringify(tokens[tKey]) + "</li>" ).appendTo( $("#queryResultsUl") );
+                            $( "<tr><td>" + tokens[tKey].token + "</td><td>" + tokens[tKey].count + "</td></tr>" ).appendTo( $("#queryResultsTable > tbody") );
                         }
-                        $("#queryResults").show();
+                        $("#topTokensDiv").show();
                     }
                     $this.button('reset');
-                });
+                }, false /*debug*/ );
         }
     });
 
     $(".nav a").on("click", function(){
         $(".nav").find(".active").removeClass("active");
         $(this).parent().addClass("active");
+        $(".tabDiv").hide();
 
-        if($(this).parent().attr('id') == 'topTokens')
-            $(".input-group").show()
-        else
-            $(".input-group").hide()
+
+        var tabId = $(this).parent().attr('id');
+        if(tabId == 'topTokens') {
+            $(".input-group").show();
+            $("#queryResultsDiv").show();
+        }
+        else {
+            $(".input-group").hide();
+
+            if(tabId == "home")
+                $("#homeDiv").show();
+            else
+                $("#topArticlesDiv").show();
+        }
     });
 });
