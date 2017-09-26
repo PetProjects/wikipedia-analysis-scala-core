@@ -11,6 +11,22 @@ $(document).ready(function(){
         if(queryStr.length == 0)
             alert('Please specify non-empty query, e.g. "50bc-50ad"');
         else {
+
+            $.loadingBlockShow({
+                imgPath: '/assets/images/default.svg',
+                text: 'jQuery Script Loading ...',
+                style: {
+                    text: 'Making HIVE query...',
+                    position: 'fixed',
+                    width: '100%',
+                    height: '100%',
+                    background: 'rgba(0, 0, 0, .8)',
+                    left: 0,
+                    top: 0,
+                    zIndex: 10000
+                }
+            });
+
             wikiq.queryTopTokens(queryStr,
                 function(tokens){
                     if(tokens){
@@ -23,6 +39,7 @@ $(document).ready(function(){
                         $("#topTokensDiv").show();
                     }
                     $this.button('reset');
+                    $.loadingBlockHide();
                 }, false /*debug*/ );
         }
     });
